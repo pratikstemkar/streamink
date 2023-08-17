@@ -2,7 +2,7 @@
 
 ## Tasklist
 
-- [ ] Project Init
+- [x] Project Init
 - [ ] NextAuth Setup
 - [ ] Database Setup
 - [ ] UI Layout Setup
