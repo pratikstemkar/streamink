@@ -12,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { AlignJustifyIcon, X } from "lucide-react";
+import { AlignJustifyIcon, SnowflakeIcon } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -30,17 +30,19 @@ const Navbar = () => {
             <Link href="/">StreamInk</Link>
           </h1>
         </div>
-        <div className="space-x-5 items-center hidden md:block">
+        <div className="space-x-5 items-center justify-center hidden md:block">
           <Link href="/subscribe">
             <Button variant="outline" className="text-yellow-500 rounded-full">
               Subscribe
             </Button>
           </Link>
-          <Button variant="default">Join Now</Button>
+          <Button variant="default" size="sm">
+            Join Now
+          </Button>
           <AuthDialog />
           <ModeToggle />
         </div>
-        <div className="md:hidden">
+        <div className="flex items-center space-x-2 md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Button variant="outline" size="icon">
@@ -50,7 +52,11 @@ const Navbar = () => {
             <DropdownMenuContent>
               {/* <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator /> */}
-              <DropdownMenuItem>Subscribe</DropdownMenuItem>
+              <Link href="/subscribe">
+                <DropdownMenuItem>
+                  <span className="text-yellow-500">Subscribe</span>
+                </DropdownMenuItem>
+              </Link>
               <DropdownMenuItem>Join Now</DropdownMenuItem>
               <DropdownMenuItem>Sign In</DropdownMenuItem>
             </DropdownMenuContent>

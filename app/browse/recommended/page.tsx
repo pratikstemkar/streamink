@@ -225,7 +225,7 @@ const Recommended = () => {
     <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 space-y-5">
       <div className="w-full">
         <h1 className="text-2xl font-extrabold">Recommended</h1>
-        <div className="columns-6">
+        <div className="columns-2 md:columns-6">
           {recommended?.map((series) => (
             <Link href={`/watch/${series.seriedId}`} key={series.seriedId}>
               <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5">
@@ -237,7 +237,7 @@ const Recommended = () => {
                   alt="image"
                 />
                 <div className="absolute bottom-0 left-0 px-2 py-1">
-                  <h4 className="mb-3 text-xl font-semibold tracking-tight text-white">
+                  <h4 className="md:text-xl font-semibold tracking-tight text-white">
                     {series.title}
                   </h4>
                 </div>

@@ -50,10 +50,10 @@ const TrendingList = () => {
           <ArrowRight />
         </Link>
       </div>
-      <div className="flex space-x-4">
+      <div className="columns-2 md:columns-6">
         {trending?.map((series) => (
           <Link href={`/watch/${series.seriedId}`} key={series.seriedId}>
-            <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+            <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5">
               <Image
                 className="rounded-lg"
                 src={series.imgUrl}
@@ -62,7 +62,7 @@ const TrendingList = () => {
                 alt="image"
               />
               <div className="absolute bottom-0 left-0 px-2 py-1">
-                <h4 className="mb-3 text-xl font-semibold tracking-tight text-white">
+                <h4 className="text-sm md:text-xl font-semibold tracking-tight text-white">
                   {series.title}
                 </h4>
               </div>

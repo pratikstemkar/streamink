@@ -25,7 +25,9 @@ const AuthDialog = () => {
     <>
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline">Sign In</Button>
+          <Button variant="outline" size="sm">
+            Sign In
+          </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
