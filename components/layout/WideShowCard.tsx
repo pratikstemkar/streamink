@@ -2,6 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 
+type Episode = {
+  episode: string;
+  title: string;
+  thumbnail: string;
+};
+
+type Season = {
+  season: string;
+  episodes: Array<Episode>;
+  thumbnail: string;
+};
+
 const WideShowCard = ({
   params,
 }: {
@@ -13,7 +25,7 @@ const WideShowCard = ({
     year: number;
     language: number;
     subtitle: number;
-    seasons: [];
+    seasons: Array<Season>;
   };
 }) => {
   return (

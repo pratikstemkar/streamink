@@ -29,7 +29,7 @@ const Season = ({
       <div className="w-full flex flex-col lg:flex-row space-y-5 lg:space-x-5 lg:space-y-0">
         <div className="w-full lg:w-3/4 overflow-hidden lg:relative">
           <Image
-            src={foundSeason?.thumbnail}
+            src={foundSeason?.thumbnail!}
             alt="video-player"
             className="lg:rounded-lg hidden lg:block"
             fill
@@ -37,7 +37,7 @@ const Season = ({
           />
           {/* mobile video player */}
           <Image
-            src="https://res.cloudinary.com/doa2rj1yw/image/upload/v1692267734/itaewon-class_vqb2ep.jpg"
+            src={foundSeason?.thumbnail!}
             alt="video-player"
             className="lg:hidden"
             height={1000}

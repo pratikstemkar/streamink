@@ -11,7 +11,7 @@ const params = {
   year: 2020,
   language: 2,
   subtitle: 8,
-  seasons: 0,
+  seasons: [],
 };
 
 export default function Home() {
