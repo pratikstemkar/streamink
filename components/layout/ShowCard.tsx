@@ -1,0 +1,29 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const ShowCard = ({
+  params,
+}: {
+  params: { title: string; seriesId: string; thumbnail: string };
+}) => {
+  return (
+    <Link href={`/watch/${params.seriesId}`} key={params.seriesId}>
+      <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5">
+        <Image
+          className="rounded-lg"
+          src={params.thumbnail}
+          width={300}
+          height={100}
+          alt="image"
+        />
+        <div className="absolute bottom-0 left-0 px-2 py-1">
+          <h4 className="text-sm md:text-xl font-semibold tracking-tight text-white">
+            {params.title}
+          </h4>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+export default ShowCard;

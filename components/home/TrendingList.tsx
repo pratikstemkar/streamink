@@ -1,43 +1,44 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ShowCard from "../layout/ShowCard";
 
 const TrendingList = () => {
   const trending = [
     {
       title: "Jujutsu Kaisen",
       seriedId: "jujutsukaisen",
-      imgUrl:
+      thumbnail:
         "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
     },
     {
       title: "Start-Up",
       seriedId: "startup",
-      imgUrl:
+      thumbnail:
         "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266261/start-up_nqgb2n.jpg",
     },
     {
       title: "It's Okay To Not Be Okay",
       seriedId: "iotnbo",
-      imgUrl:
+      thumbnail:
         "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266342/iotnbo_aseyzv.jpg",
     },
     {
       title: "Bojack Horseman",
       seriedId: "bojackhorseman",
-      imgUrl:
+      thumbnail:
         "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692279386/bojack_zookqd.jpg",
     },
     {
       title: "Rent a Girlfriend",
       seriedId: "rentagirlfriend",
-      imgUrl:
+      thumbnail:
         "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
     },
     {
       title: "Vincenzo",
       seriedId: "vincenzo",
-      imgUrl:
+      thumbnail:
         "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266168/vincenzo_vrpdio.jpg",
     },
   ];
@@ -52,22 +53,14 @@ const TrendingList = () => {
       </div>
       <div className="columns-2 md:columns-6">
         {trending?.map((series) => (
-          <Link href={`/watch/${series.seriedId}`} key={series.seriedId}>
-            <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5">
-              <Image
-                className="rounded-lg"
-                src={series.imgUrl}
-                width={300}
-                height={100}
-                alt="image"
-              />
-              <div className="absolute bottom-0 left-0 px-2 py-1">
-                <h4 className="text-sm md:text-xl font-semibold tracking-tight text-white">
-                  {series.title}
-                </h4>
-              </div>
-            </div>
-          </Link>
+          <ShowCard
+            params={{
+              title: series.title,
+              seriesId: series.seriedId,
+              thumbnail: series.thumbnail,
+            }}
+            key={series.seriedId}
+          />
         ))}
       </div>
     </div>
