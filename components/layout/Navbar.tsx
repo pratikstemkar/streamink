@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 import { Button } from "../ui/button";
@@ -15,7 +17,14 @@ import { AlignJustifyIcon, SnowflakeIcon } from "lucide-react";
 import LoginDialog from "../auth/LoginDialog";
 import RegisterDialog from "../auth/RegisterDialog";
 
+import { useSession } from "next-auth/react";
+import UserAvatar from "./UserAvatar";
+
 const Navbar = () => {
+  const { data: session } = useSession({
+    required: true,
+  });
+
   return (
     <header className="sticky top-0 z-10 border-b dark:bg-slate-950 bg-white">
       <nav className="py-2 px-5 md:px-12 flex justify-between items-center m-auto">
@@ -31,14 +40,31 @@ const Navbar = () => {
             <Link href="/">StreamInk</Link>
           </h1>
         </div>
-        <div className="space-x-5 items-center justify-center hidden md:block">
-          <Link href="/subscribe">
-            <Button variant="outline" className="text-yellow-500 rounded-full">
-              Subscribe
-            </Button>
-          </Link>
-          <RegisterDialog />
-          <LoginDialog />
+        <div className="space-x-5 flex-row items-center justify-center hidden lg:block">
+          {/* {session ? (
+            <>
+              <UserAvatar params={{ image: session?.user?.image! }} />
+              <span>Hello</span>
+            </>
+          ) : (
+            <>
+              <RegisterDialog />
+              <LoginDialog />
+            </>
+          )} */}
+          {session && (
+            <div className="flex justify-center items-center space-x-5">
+              <Link href="/subscribe">
+                <Button
+                  variant="outline"
+                  className="text-yellow-500 rounded-full"
+                >
+                  Subscribe
+                </Button>
+              </Link>
+              <UserAvatar params={{ image: session?.user?.image! }} />
+            </div>
+          )}
           {/* <ModeToggle /> */}
         </div>
         <div className="flex items-center space-x-2 md:hidden">
