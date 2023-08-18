@@ -40,7 +40,7 @@ const Navbar = () => {
             Join Now
           </Button>
           <AuthDialog />
-          <ModeToggle />
+          {/* <ModeToggle /> */}
         </div>
         <div className="flex items-center space-x-2 md:hidden">
           <DropdownMenu>
