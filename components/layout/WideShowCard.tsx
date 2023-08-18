@@ -34,9 +34,7 @@ const WideShowCard = ({
           <div>
             <Link
               href={`/watch/${params.seriesId}${
-                params.seasons.length > 0
-                  ? "/" + params?.seasons[0].season
-                  : null
+                params.seasons.length > 0 ? "/" + params?.seasons[0].season : ""
               }`}
             >
               <Button>
@@ -65,7 +63,7 @@ const WideShowCard = ({
           </div>
           <Link
             href={`/watch/${params.seriesId}${
-              params.seasons.length > 0 ? "/" + params?.seasons[0].season : null
+              params.seasons.length > 0 ? "/" + params?.seasons[0].season : ""
             }`}
           >
             <Button className="mt-2 lg:hidden w-full">
