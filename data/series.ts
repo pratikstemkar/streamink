@@ -10,16 +10,16 @@ export const series = [
     subtitle: 8,
     seasons: [
       {
-        season: 1,
+        season: "s1",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
@@ -29,10 +29,10 @@ export const series = [
           "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
       },
       {
-        season: 2,
+        season: "s2",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
@@ -57,16 +57,16 @@ export const series = [
     subtitle: 6,
     seasons: [
       {
-        season: 1,
+        season: "s1",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692279386/bojack_zookqd.jpg",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692279386/bojack_zookqd.jpg",
@@ -76,10 +76,10 @@ export const series = [
           "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692279386/bojack_zookqd.jpg",
       },
       {
-        season: 2,
+        season: "s2",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692279386/bojack_zookqd.jpg",
@@ -104,16 +104,16 @@ export const series = [
     subtitle: 6,
     seasons: [
       {
-        season: 1,
+        season: "s1",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692267734/itaewon-class_vqb2ep.jpg",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692267734/itaewon-class_vqb2ep.jpg",
@@ -138,16 +138,16 @@ export const series = [
     subtitle: 6,
     seasons: [
       {
-        season: 1,
+        season: "s1",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266342/iotnbo_aseyzv.jpg",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266342/iotnbo_aseyzv.jpg",
@@ -172,17 +172,23 @@ export const series = [
     subtitle: 6,
     seasons: [
       {
-        season: 1,
+        season: "s1",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266261/start-up_nqgb2n.jpg",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
+            thumbnail:
+              "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266261/start-up_nqgb2n.jpg",
+          },
+          {
+            episode: "ep3",
+            title: "Episode 3",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266261/start-up_nqgb2n.jpg",
           },
@@ -206,16 +212,16 @@ export const series = [
     subtitle: 6,
     seasons: [
       {
-        season: 1,
+        season: "s1",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266198/clou_gntccr.jpg",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266198/clou_gntccr.jpg",
@@ -240,16 +246,16 @@ export const series = [
     subtitle: 6,
     seasons: [
       {
-        season: 1,
+        season: "s1",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266168/vincenzo_vrpdio.jpg",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266168/vincenzo_vrpdio.jpg",
@@ -274,16 +280,16 @@ export const series = [
     subtitle: 6,
     seasons: [
       {
-        season: 1,
+        season: "s1",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
@@ -293,38 +299,38 @@ export const series = [
           "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
       },
       {
-        season: 2,
+        season: "s2",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
-              "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
+              "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692357061/rent-a-girl-2_s2ajqe.jpg",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
             thumbnail:
-              "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
+              "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692357061/rent-a-girl-2_s2ajqe.jpg",
           },
         ],
         thumbnail:
           "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692357061/rent-a-girl-2_s2ajqe.jpg",
       },
       {
-        season: 3,
+        season: "s3",
         episodes: [
           {
-            episode: 1,
+            episode: "ep1",
             title: "Episode 1",
             thumbnail:
-              "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
+              "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692357182/rent-a-girl-3_zjlxba.jpg",
           },
           {
-            episode: 2,
+            episode: "ep2",
             title: "Episode 2",
             thumbnail:
-              "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
+              "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692357182/rent-a-girl-3_zjlxba.jpg",
           },
         ],
         thumbnail:

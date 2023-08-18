@@ -40,7 +40,10 @@ const WideShowCard = ({
               <Button>
                 Watch{" "}
                 {params.seasons.length > 0
-                  ? "Season " + params?.seasons[0].season
+                  ? "Season " +
+                    params?.seasons[0].season[
+                      params?.seasons[0].season.length - 1
+                    ]
                   : "Now"}
               </Button>
             </Link>
@@ -69,7 +72,10 @@ const WideShowCard = ({
             <Button className="mt-2 lg:hidden w-full">
               Watch{" "}
               {params.seasons.length > 0
-                ? "Season " + params?.seasons[0].season
+                ? "Season " +
+                  params?.seasons[0].season[
+                    params?.seasons[0].season.length - 1
+                  ]
                 : "Now"}
             </Button>
           </Link>
