@@ -13,6 +13,7 @@ const WideShowCard = ({
     year: number;
     language: number;
     subtitle: number;
+    seasons: [];
   };
 }) => {
   return (
@@ -31,8 +32,19 @@ const WideShowCard = ({
             <span>{params.subtitle} Subtitles</span>
           </div>
           <div>
-            <Link href={`/watch/${params.seriesId}`}>
-              <Button>Watch Now</Button>
+            <Link
+              href={`/watch/${params.seriesId}${
+                params.seasons.length > 0
+                  ? "/" + params?.seasons[0].season
+                  : null
+              }`}
+            >
+              <Button>
+                Watch{" "}
+                {params.seasons.length > 0
+                  ? "Season " + params?.seasons[0].season
+                  : "Now"}
+              </Button>
             </Link>
           </div>
         </div>
@@ -51,8 +63,17 @@ const WideShowCard = ({
               </h4>
             </div>
           </div>
-          <Link href={`/watch/${params.seriesId}`}>
-            <Button className="mt-2 lg:hidden w-full">Watch Now</Button>
+          <Link
+            href={`/watch/${params.seriesId}${
+              params.seasons.length > 0 ? "/" + params?.seasons[0].season : null
+            }`}
+          >
+            <Button className="mt-2 lg:hidden w-full">
+              Watch{" "}
+              {params.seasons.length > 0
+                ? "Season " + params?.seasons[0].season
+                : "Now"}
+            </Button>
           </Link>
         </div>
       </div>
