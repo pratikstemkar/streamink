@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 import { Button } from "../ui/button";
-import AuthDialog from "../auth/AuthDialog";
 import Image from "next/image";
 
 import {
@@ -13,6 +12,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { AlignJustifyIcon, SnowflakeIcon } from "lucide-react";
+import LoginDialog from "../auth/LoginDialog";
+import RegisterDialog from "../auth/RegisterDialog";
 
 const Navbar = () => {
   return (
@@ -36,10 +37,8 @@ const Navbar = () => {
               Subscribe
             </Button>
           </Link>
-          <Button variant="default" size="sm">
-            Join Now
-          </Button>
-          <AuthDialog />
+          <RegisterDialog />
+          <LoginDialog />
           {/* <ModeToggle /> */}
         </div>
         <div className="flex items-center space-x-2 md:hidden">
