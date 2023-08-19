@@ -22,7 +22,7 @@ import UserAvatar from "./UserAvatar";
 
 const Navbar = () => {
   const { data: session } = useSession({
-    required: true,
+    required: false,
   });
 
   return (
@@ -41,19 +41,22 @@ const Navbar = () => {
           </h1>
         </div>
         <div className="space-x-5 flex-row items-center justify-center hidden lg:block">
-          {/* {session ? (
+          {session ? (
             <>
-              <UserAvatar params={{ image: session?.user?.image! }} />
-              <span>Hello</span>
+              <div className="flex justify-center items-center space-x-5">
+                <Link href="/subscribe">
+                  <Button
+                    variant="outline"
+                    className="text-yellow-500 rounded-full"
+                  >
+                    Subscribe
+                  </Button>
+                </Link>
+                <UserAvatar params={{ image: session?.user?.image! }} />
+              </div>
             </>
           ) : (
             <>
-              <RegisterDialog />
-              <LoginDialog />
-            </>
-          )} */}
-          {session && (
-            <div className="flex justify-center items-center space-x-5">
               <Link href="/subscribe">
                 <Button
                   variant="outline"
@@ -62,8 +65,9 @@ const Navbar = () => {
                   Subscribe
                 </Button>
               </Link>
-              <UserAvatar params={{ image: session?.user?.image! }} />
-            </div>
+              <RegisterDialog />
+              <LoginDialog />
+            </>
           )}
           {/* <ModeToggle /> */}
         </div>

@@ -33,6 +33,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import { signOut } from "next-auth/react";
 
 const UserAvatar = ({ params }: { params: { image: string } }) => {
   const router = useRouter();
@@ -123,9 +124,7 @@ const UserAvatar = ({ params }: { params: { image: string } }) => {
           <span>API</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          onClick={() => router.push("/api/auth/signout?callbackUrl=/")}
-        >
+        <DropdownMenuItem onClick={() => signOut()}>
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
