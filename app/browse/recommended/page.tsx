@@ -44,7 +44,7 @@ const Recommended = () => {
 
   return (
     <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 space-y-5">
-      <div className="w-full">
+      <div className="w-full space-y-2">
         <h1 className="text-2xl font-extrabold">Recommended</h1>
         <div className="columns-2 md:columns-6">
           {recommended?.map((series) => (

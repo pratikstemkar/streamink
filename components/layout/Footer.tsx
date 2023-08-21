@@ -1,27 +1,29 @@
 import Link from "next/link";
 
 const Footer = () => {
-    return (<footer className="font-mono text-sm text-slate-500 flex justify-center p-5 bottom-0">
-    <div>
+  return (
+    <footer className="font-mono text-sm text-slate-500 flex items-center justify-center p-5 bottom-0 z-10 bg-slate-950">
+      <div>
         Built by{" "}
         <Link
-            href="https://pratikstemkar.in"
-            target="_blank"
-            className="underline "
+          href="https://pratikstemkar.in"
+          target="_blank"
+          className="underline "
         >
-            pratikstemkar
+          pratikstemkar
         </Link>
         . The Source Code is available on{" "}
         <Link
-            href="https://github.com/pratikstemkar/streamink"
-            target="_blank"
-            className="underline "
+          href="https://github.com/pratikstemkar/streamink"
+          target="_blank"
+          className="underline "
         >
-            GitHub
+          GitHub
         </Link>
         .
-    </div>
-</footer>)
-}
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;

@@ -1,7 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { ModeToggle } from "./ModeToggle";
 import { Button } from "../ui/button";
-import AuthDialog from "../auth/AuthDialog";
 import Image from "next/image";
 
 import {
@@ -12,12 +12,26 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { AlignJustifyIcon, SnowflakeIcon } from "lucide-react";
+import {
+  AlignJustifyIcon,
+  LogIn,
+  LogOut,
+  SnowflakeIcon,
+  Sparkles,
+  User,
+} from "lucide-react";
+
+import { signOut, useSession } from "next-auth/react";
+import UserAvatar from "./UserAvatar";
 
 const Navbar = () => {
+  const { data: session } = useSession({
+    required: false,
+  });
+
   return (
     <header className="sticky top-0 z-10 border-b dark:bg-slate-950 bg-white">
-      <nav className="py-2 px-5 md:px-12 flex justify-between items-center m-auto">
+      <nav className="py-2 px-5 lg:px-12 flex justify-between items-center m-auto">
         <div className="flex space-x-1 items-center justify-center">
           <Image
             src="/live.png"
@@ -26,23 +40,41 @@ const Navbar = () => {
             alt="logo"
             className="dark:invert"
           />
-          <h1 className="text-2xl md:text-3xl font-extrabold leading-none tracking-tight hover:text-purple-600 flex items-center">
+          <h1 className="text-2xl lg:text-3xl font-extrabold leading-none tracking-tight hover:text-purple-600 flex items-center">
             <Link href="/">StreamInk</Link>
           </h1>
         </div>
-        <div className="space-x-5 items-center justify-center hidden md:block">
-          <Link href="/subscribe">
-            <Button variant="outline" className="text-yellow-500 rounded-full">
-              Subscribe
-            </Button>
-          </Link>
-          <Button variant="default" size="sm">
-            Join Now
-          </Button>
-          <AuthDialog />
-          {/* <ModeToggle /> */}
+        <div className="space-x-5 flex-row items-center justify-center hidden lg:block">
+          {session ? (
+            <>
+              <div className="flex justify-center items-center space-x-5">
+                <Link href="/subscribe">
+                  <Button variant="outline" className="rounded-full">
+                    <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
+                    <span className="text-yellow-500">Subscribe</span>
+                  </Button>
+                </Link>
+                <UserAvatar params={{ image: session?.user?.image! }} />
+              </div>
+            </>
+          ) : (
+            <>
+              <Link href="/subscribe">
+                <Button variant="outline" className="rounded-full">
+                  <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
+                  <span className="text-yellow-500">Subscribe</span>
+                </Button>
+              </Link>
+              <Link href="/login">
+                <Button variant="outline" size="sm">
+                  <LogIn className="mr-2 h-4 w-4" />
+                  <span>Sign In</span>
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
-        <div className="flex items-center space-x-2 md:hidden">
+        <div className="flex items-center space-x-2 lg:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Button variant="outline" size="icon">
@@ -52,13 +84,41 @@ const Navbar = () => {
             <DropdownMenuContent>
               {/* <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator /> */}
-              <Link href="/subscribe">
-                <DropdownMenuItem>
-                  <span className="text-yellow-500">Subscribe</span>
-                </DropdownMenuItem>
-              </Link>
-              <DropdownMenuItem>Join Now</DropdownMenuItem>
-              <DropdownMenuItem>Sign In</DropdownMenuItem>
+              {session ? (
+                <>
+                  <Link href="/subscribe">
+                    <DropdownMenuItem>
+                      <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
+                      <span className="text-yellow-500">Subscribe</span>
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link href="/profile">
+                    <DropdownMenuItem>
+                      <User className="mr-2 h-4 w-4" />
+                      <span>Profile</span>
+                    </DropdownMenuItem>
+                  </Link>
+                  <DropdownMenuItem onClick={() => signOut()}>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Sign Out</span>
+                  </DropdownMenuItem>
+                </>
+              ) : (
+                <>
+                  <Link href="/subscribe">
+                    <DropdownMenuItem>
+                      <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
+                      <span className="text-yellow-500">Subscribe</span>
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link href="/login">
+                    <DropdownMenuItem>
+                      <LogIn className="mr-2 h-4 w-4" />
+                      <span>Sign In</span>
+                    </DropdownMenuItem>
+                  </Link>
+                </>
+              )}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

@@ -8,7 +8,7 @@ const ShowCard = ({
 }) => {
   return (
     <Link href={`/watch/${params.seriesId}`} key={params.seriesId}>
-      <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5">
+      <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">
         <Image
           className="rounded-lg"
           src={params.thumbnail}
@@ -17,7 +17,7 @@ const ShowCard = ({
           alt="image"
         />
         <div className="absolute bottom-0 left-0 px-2 py-1">
-          <h4 className="text-sm md:text-xl font-semibold tracking-tight text-white">
+          <h4 className="text-sm lg:text-xl font-semibold tracking-tight text-white">
             {params.title}
           </h4>
         </div>

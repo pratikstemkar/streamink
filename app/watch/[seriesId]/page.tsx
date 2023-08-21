@@ -54,7 +54,7 @@ const Series = ({ params }: { params: { seriesId: string } }) => {
               href={`/watch/${foundShow?.seriesId}/${season.season}`}
               key={season.season}
             >
-              <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5">
+              <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">
                 <Image
                   className="rounded-lg"
                   src={season.thumbnail}
@@ -63,7 +63,7 @@ const Series = ({ params }: { params: { seriesId: string } }) => {
                   alt="image"
                 />
                 <div className="absolute bottom-0 left-0 px-2 py-1">
-                  <h4 className="text-xl font-semibold tracking-tight text-white">
+                  <h4 className="text-sm lg:text-xl font-semibold tracking-tight text-white">
                     Season {season.season[season.season.length - 1]}
                   </h4>
                 </div>
