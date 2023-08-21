@@ -63,7 +63,7 @@ const WideShowCard = ({
           </div>
         </div>
         <div className="flex flex-col ">
-          <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+          <div className="relative overflow-hidden rounded-lg shadow-lg">
             <Image
               className="rounded-lg"
               src={params.thumbnail}

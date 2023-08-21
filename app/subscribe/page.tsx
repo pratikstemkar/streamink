@@ -21,7 +21,7 @@ const Subscribe = () => {
         </div>
         <div className="lg:w-1/2">
           <Image
-            src="https://res.cloudinary.com/doa2rj1yw/image/upload/v1692267734/itaewon-class_vqb2ep.jpg"
+            src="https://res.cloudinary.com/doa2rj1yw/image/upload/v1692613369/netflix-back_zwhku2.jpg"
             alt="itaewon-class"
             height={500}
             width={1000}

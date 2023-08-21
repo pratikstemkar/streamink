@@ -17,7 +17,7 @@ const ShowCard = ({
           alt="image"
         />
         <div className="absolute bottom-0 left-0 px-2 py-1">
-          <h4 className="text-sm md:text-xl font-semibold tracking-tight text-white">
+          <h4 className="text-sm lg:text-xl font-semibold tracking-tight text-white">
             {params.title}
           </h4>
         </div>
