@@ -33,15 +33,7 @@ const Season = ({
             fill
             style={{ objectFit: "cover" }}
           /> */}
-          <VideoPlayer />
-          {/* mobile video player */}
-          <Image
-            src={foundSeason?.thumbnail!}
-            alt="video-player"
-            className="lg:hidden"
-            height={1000}
-            width={1000}
-          />
+          <VideoPlayer videoUrl={foundShow?.trailer!} />
         </div>
         <div className="w-full lg:w-1/4 space-y-2">
           <h3 className="text-xl font-bold">
