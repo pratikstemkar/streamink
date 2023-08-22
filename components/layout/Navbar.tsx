@@ -99,7 +99,7 @@ const Navbar = () => {
                     </DropdownMenuItem>
                   </Link>
                   <DropdownMenuItem
-                    onClick={() => signOut()}
+                    onClick={() => signOut({ callbackUrl: "/" })}
                     className="text-red-500"
                   >
                     <LogOut className="mr-2 h-4 w-4" />

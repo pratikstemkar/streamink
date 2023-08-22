@@ -66,7 +66,7 @@ const UserAvatar = ({ params }: { params: { image: string } }) => {
             <span>Settings</span>
           </DropdownMenuItem> */}
           <DropdownMenuItem
-            onClick={() => signOut()}
+            onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
             className="text-red-500 cursor-pointer"
           >
             <LogOut className="mr-2 h-4 w-4" />
