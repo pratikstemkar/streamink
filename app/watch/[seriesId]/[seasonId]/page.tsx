@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import {
   Select,
   SelectContent,
@@ -11,8 +10,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { series } from "@/data/series";
-
-const tags = Array.from({ length: 16 }).map((_, i, a) => `${i + 1}`);
+import VideoPlayer from "@/components/watch/VideoPlayer";
 
 const Season = ({
   params,
@@ -28,13 +26,14 @@ const Season = ({
     <main className="flex flex-col items-center justify-center  lg:px-10 m-auto lg:mt-5 space-y-5">
       <div className="w-full flex flex-col lg:flex-row space-y-5 lg:space-x-5 lg:space-y-0">
         <div className="w-full lg:w-3/4 overflow-hidden lg:relative">
-          <Image
+          {/* <Image
             src={foundSeason?.thumbnail!}
             alt="video-player"
             className="lg:rounded-lg hidden lg:block"
             fill
             style={{ objectFit: "cover" }}
-          />
+          /> */}
+          <VideoPlayer />
           {/* mobile video player */}
           <Image
             src={foundSeason?.thumbnail!}
