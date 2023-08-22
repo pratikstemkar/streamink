@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "~fluid-player/src/css/fluidplayer.css";
 
 /* @layer base {
   :root {

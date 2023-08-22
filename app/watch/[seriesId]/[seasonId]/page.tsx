@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import {
   Select,
   SelectContent,
@@ -11,8 +10,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { series } from "@/data/series";
-
-const tags = Array.from({ length: 16 }).map((_, i, a) => `${i + 1}`);
+import VideoPlayer from "@/components/watch/VideoPlayer";
 
 const Season = ({
   params,
@@ -25,26 +23,19 @@ const Season = ({
   );
 
   return (
-    <main className="flex flex-col items-center justify-center  lg:px-10 m-auto lg:mt-5 space-y-5">
+    <main className="flex flex-col items-center justify-center lg:px-10 m-auto lg:mt-5 space-y-5">
       <div className="w-full flex flex-col lg:flex-row space-y-5 lg:space-x-5 lg:space-y-0">
         <div className="w-full lg:w-3/4 overflow-hidden lg:relative">
-          <Image
+          {/* <Image
             src={foundSeason?.thumbnail!}
             alt="video-player"
             className="lg:rounded-lg hidden lg:block"
             fill
             style={{ objectFit: "cover" }}
-          />
-          {/* mobile video player */}
-          <Image
-            src={foundSeason?.thumbnail!}
-            alt="video-player"
-            className="lg:hidden"
-            height={1000}
-            width={1000}
-          />
+          /> */}
+          <VideoPlayer videoUrl={foundShow?.trailer!} />
         </div>
-        <div className="w-full lg:w-1/4 space-y-2">
+        <div className="w-full hidden lg:block lg:w-1/4 space-y-2">
           <h3 className="text-xl font-bold">
             <Select>
               <SelectTrigger className="w-[180px]">
@@ -80,7 +71,7 @@ const Season = ({
                     />
                     <div className="flex-col justify-between hidden lg:block">
                       <div>
-                        <h3 className="font-vold">{episode.title}</h3>
+                        <h3 className="font-bold">{episode.title}</h3>
                         <p className="text-slate-500 text-sm">
                           Lorem ipsum dolor sit amet consectetur...
                         </p>
@@ -93,6 +84,56 @@ const Season = ({
             </div>
           </ScrollArea>
         </div>
+      </div>
+      <div className="flex w-full px-5">
+        <div className="w-full">
+          <h2 className="text-2xl tracking-tight font-extrabold">
+            {foundShow?.title}
+            {" - "}
+            {"Trailer"}
+          </h2>
+          <p className="text-sm text-slate-500">{foundShow?.desc}</p>
+        </div>
+      </div>
+      <div className="w-full px-5 lg:hidden space-y-2">
+        <h3 className="text-xl font-bold">
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue
+                placeholder={
+                  "Season " + params.seasonId[params.seasonId.length - 1]
+                }
+              />
+            </SelectTrigger>
+            <SelectContent>
+              {foundShow?.seasons.map((season) => (
+                <SelectItem value={season.season} key={season.season}>
+                  Season {season.season[season.season.length - 1]}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </h3>
+        {foundSeason?.episodes.map((episode) => (
+          <div className="columns-1 flex space-x-2 py-1" key={episode.episode}>
+            <Image
+              src={episode.thumbnail}
+              alt="episode image"
+              height={150}
+              width={150}
+              className="rounded-lg"
+            />
+            <div className="flex-col justify-between">
+              <div>
+                <h3 className="font-bold">{episode.title}</h3>
+                <p className="text-slate-500 text-sm">
+                  Lorem ipsum dolor sit amet consectetur...
+                </p>
+              </div>
+              <span className="text-xs">43 mins</span>
+            </div>
+          </div>
+        ))}
       </div>
     </main>
   );

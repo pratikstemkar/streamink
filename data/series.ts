@@ -4,38 +4,50 @@ export const series = [
     seriesId: "jujutsukaisen",
     thumbnail:
       "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
-    desc: "Jujutsu Kaisen is a Japanese manga series written and illustrated by Gege Akutami. It has been serialized in Shueisha&apos;s shōnen mangamagazine Weekly Shōnen Jump since March 2018, with its chapterscollected and published in 23 tankōbon volumes as of July 2023.",
+    desc: "Jujutsu Kaisen is a Japanese manga series written and illustrated by Gege Akutami. It has been serialized in Shueisha's shōnen mangamagazine Weekly Shōnen Jump since March 2018, with its chapterscollected and published in 23 tankōbon volumes as of July 2023.",
     year: 2020,
     language: 2,
     subtitle: 8,
+    trailer:
+      "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/jujutsu-kaisen-2-trailer_dowxx8.mp4",
     seasons: [
       {
         season: "s1",
+        thumbnail:
+          "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/jujutsu-kaisen-2-trailer_dowxx8.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/jujutsu-kaisen-2-trailer_dowxx8.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/jujutsu-kaisen-2-trailer_dowxx8.mp4",
           },
         ],
-        thumbnail:
-          "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
       },
       {
         season: "s2",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/jujutsu-kaisen-2-trailer_dowxx8.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/jujutsu-kaisen-2-trailer_dowxx8.mp4",
           },
         ],
         thumbnail:
@@ -55,21 +67,29 @@ export const series = [
     year: 2014,
     language: 2,
     subtitle: 6,
+    trailer:
+      "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699724/bojack-trailer_oidn9c.mp4",
     seasons: [
       {
         season: "s1",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699724/bojack-trailer_oidn9c.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692279386/bojack_zookqd.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699724/bojack-trailer_oidn9c.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692279386/bojack_zookqd.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699724/bojack-trailer_oidn9c.mp4",
           },
         ],
         thumbnail:
@@ -77,12 +97,16 @@ export const series = [
       },
       {
         season: "s2",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699724/bojack-trailer_oidn9c.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692279386/bojack_zookqd.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699724/bojack-trailer_oidn9c.mp4",
           },
         ],
         thumbnail:
@@ -102,21 +126,29 @@ export const series = [
     year: 2020,
     language: 2,
     subtitle: 6,
+    trailer:
+      "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/itaewon-class-trailer_te6ogz.mp4",
     seasons: [
       {
         season: "s1",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/itaewon-class-trailer_te6ogz.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692267734/itaewon-class_vqb2ep.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/itaewon-class-trailer_te6ogz.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692267734/itaewon-class_vqb2ep.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/itaewon-class-trailer_te6ogz.mp4",
           },
         ],
         thumbnail:
@@ -136,21 +168,29 @@ export const series = [
     year: 2020,
     language: 2,
     subtitle: 6,
+    trailer:
+      "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699695/iotnbo-trailer_xggjzo.mp4",
     seasons: [
       {
         season: "s1",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699695/iotnbo-trailer_xggjzo.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266342/iotnbo_aseyzv.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699695/iotnbo-trailer_xggjzo.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266342/iotnbo_aseyzv.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699695/iotnbo-trailer_xggjzo.mp4",
           },
         ],
         thumbnail:
@@ -170,27 +210,37 @@ export const series = [
     year: 2020,
     language: 2,
     subtitle: 6,
+    trailer:
+      "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/startup-trailer_tcwhr9.mp4",
     seasons: [
       {
         season: "s1",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/startup-trailer_tcwhr9.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266261/start-up_nqgb2n.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/startup-trailer_tcwhr9.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266261/start-up_nqgb2n.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/startup-trailer_tcwhr9.mp4",
           },
           {
             episode: "ep3",
             title: "Episode 3",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266261/start-up_nqgb2n.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699708/startup-trailer_tcwhr9.mp4",
           },
         ],
         thumbnail:
@@ -210,21 +260,29 @@ export const series = [
     year: 2019,
     language: 2,
     subtitle: 6,
+    trailer:
+      "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699705/crashlanding-trailer_odudex.mp4",
     seasons: [
       {
         season: "s1",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699705/crashlanding-trailer_odudex.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266198/clou_gntccr.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699705/crashlanding-trailer_odudex.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266198/clou_gntccr.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699705/crashlanding-trailer_odudex.mp4",
           },
         ],
         thumbnail:
@@ -244,21 +302,29 @@ export const series = [
     year: 2021,
     language: 2,
     subtitle: 6,
+    trailer:
+      "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699701/vincenzo-trailer_aabweg.mp4",
     seasons: [
       {
         season: "s1",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699701/vincenzo-trailer_aabweg.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266168/vincenzo_vrpdio.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699701/vincenzo-trailer_aabweg.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266168/vincenzo_vrpdio.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699701/vincenzo-trailer_aabweg.mp4",
           },
         ],
         thumbnail:
@@ -278,21 +344,29 @@ export const series = [
     year: 2017,
     language: 2,
     subtitle: 6,
+    trailer:
+      "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
     seasons: [
       {
         season: "s1",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
           },
         ],
         thumbnail:
@@ -300,18 +374,24 @@ export const series = [
       },
       {
         season: "s2",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692357061/rent-a-girl-2_s2ajqe.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692357061/rent-a-girl-2_s2ajqe.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
           },
         ],
         thumbnail:
@@ -319,18 +399,24 @@ export const series = [
       },
       {
         season: "s3",
+        trailer:
+          "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
         episodes: [
           {
             episode: "ep1",
             title: "Episode 1",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692357182/rent-a-girl-3_zjlxba.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
           },
           {
             episode: "ep2",
             title: "Episode 2",
             thumbnail:
               "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692357182/rent-a-girl-3_zjlxba.jpg",
+            video:
+              "https://res.cloudinary.com/doa2rj1yw/video/upload/v1692699698/rentagirl-trailer_ou3tcx.mp4",
           },
         ],
         thumbnail:
