@@ -41,7 +41,7 @@ const Navbar = () => {
             className="dark:invert"
           />
           <h1 className="text-2xl lg:text-3xl font-extrabold leading-none tracking-tight hover:text-purple-600 flex items-center">
-            <Link href="/">StreamInk</Link>
+            <Link href="/">{process.env.NEXT_PUBLIC_APP_NAME}</Link>
           </h1>
         </div>
         <div className="space-x-5 flex-row items-center justify-center hidden lg:block">
