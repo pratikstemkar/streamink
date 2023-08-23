@@ -3,7 +3,7 @@
 import fluidPlayer from "fluid-player";
 import { useEffect, useRef } from "react";
 
-const VideoPlayer = (params: { videoUrl: string }) => {
+const VideoPlayer = (params: { videoUrl: string; autoPlay: boolean }) => {
   let self = useRef(null);
   let player: any = null;
 
@@ -17,6 +17,7 @@ const VideoPlayer = (params: { videoUrl: string }) => {
           allowDownload: false,
           playbackRateEnabled: true,
           allowTheatre: false,
+          autoPlay: params.autoPlay,
           miniPlayer: {
             enabled: false,
           },

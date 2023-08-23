@@ -16,7 +16,7 @@ type Season = {
   thumbnail: string;
 };
 
-const WideShowCard = ({
+const BannerCard = ({
   params,
 }: {
   params: {
@@ -34,31 +34,35 @@ const WideShowCard = ({
   return (
     <div className="w-full items-center mb-5">
       <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
-        <div className="space-y-2 lg:w-1/2 px-5 lg:px-0 lg:block">
-          <h2 className="text-2xl lg:text-4xl tracking-tight font-extrabold">
-            {params.title}
-          </h2>
-          <h4 className="font-semibold text-sm">
-            {params.year}
-            {" • "}
-            {params.seasons?.length} Season{" • "}
-            {params.language} Languages{" • "}
-            <span className="bg-slate-500 rounded-sm px-1 py-0.5">U/A 16+</span>
-          </h4>
-          <p className="text-sm lg:text-base text-slate-500">{params.desc}</p>
-          <h4 className="font-semibold text-sm text-slate-500">
-            Thriller<span className="text-muted">{" | "}</span>Drama
-            <span className="text-muted">{" | "}</span>Romance
-          </h4>
-          <div className="flex space-x-2">
-            <Button variant="outline" size="sm">
-              <Plus className="mr-2 h-4 w-4" />
-              <span>Add to Watchlist</span>
-            </Button>
-            <Button variant="link" size="sm">
-              <Share className="mr-2 h-4 w-4" />
-              <span>Share</span>
-            </Button>
+        <div className="space-y-2 w-full lg:w-1/2 lg:px-0 lg:block">
+          <div className="hidden lg:block space-y-2">
+            <h2 className="text-2xl lg:text-4xl tracking-tight font-extrabold">
+              {params.title}
+            </h2>
+            <h4 className="font-semibold text-sm">
+              {params.year}
+              {" • "}
+              {params.seasons?.length} Season{" • "}
+              {params.language} Languages{" • "}
+              <span className="bg-slate-500 rounded-sm px-1 py-0.5">
+                U/A 16+
+              </span>
+            </h4>
+            <p className="text-sm lg:text-base text-slate-500">{params.desc}</p>
+            <h4 className="font-semibold text-sm text-slate-500">
+              Thriller<span className="text-muted">{" | "}</span>Drama
+              <span className="text-muted">{" | "}</span>Romance
+            </h4>
+            <div className="flex space-x-2">
+              <Button variant="outline" size="sm">
+                <Plus className="mr-2 h-4 w-4" />
+                <span>Add to Watchlist</span>
+              </Button>
+              <Button variant="link" size="sm">
+                <Share className="mr-2 h-4 w-4" />
+                <span>Share</span>
+              </Button>
+            </div>
           </div>
           <div className="lg:flex">
             <Link
@@ -109,4 +113,4 @@ const WideShowCard = ({
   );
 };
 
-export default WideShowCard;
+export default BannerCard;

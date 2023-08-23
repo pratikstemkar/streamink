@@ -11,6 +11,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { series } from "@/data/series";
 import VideoPlayer from "@/components/watch/VideoPlayer";
+import { Button } from "@/components/ui/button";
+import { Plus, Share } from "lucide-react";
 
 const Season = ({
   params,
@@ -25,15 +27,45 @@ const Season = ({
   return (
     <main className="flex flex-col items-center justify-center lg:px-10 m-auto lg:mt-5 space-y-5">
       <div className="w-full flex flex-col lg:flex-row space-y-5 lg:space-x-5 lg:space-y-0">
-        <div className="w-full lg:w-3/4 overflow-hidden lg:relative">
-          {/* <Image
-            src={foundSeason?.thumbnail!}
-            alt="video-player"
-            className="lg:rounded-lg hidden lg:block"
-            fill
-            style={{ objectFit: "cover" }}
-          /> */}
-          <VideoPlayer videoUrl={foundShow?.trailer!} />
+        <div className="w-full lg:w-3/4">
+          <div>
+            <VideoPlayer videoUrl={foundShow?.trailer!} autoPlay={false} />
+          </div>
+          <div className="flex w-full px-5">
+            <div className="w-full space-y-2">
+              <h2 className="text-2xl lg:text-4xl tracking-tight font-extrabold">
+                {foundShow?.title}
+                {" - "}
+                {"Trailer"}
+              </h2>
+              <h4 className="font-semibold text-sm">
+                {foundShow?.year}
+                {" • "}
+                {foundShow?.seasons.length} Season{" • "}
+                {foundShow?.language} Languages{" • "}
+                <span className="bg-slate-500 rounded-sm px-1 py-0.5">
+                  U/A 16+
+                </span>
+              </h4>
+              <p className="text-sm lg:text-base text-slate-500">
+                {foundShow?.desc}
+              </p>
+              <h4 className="font-semibold text-sm text-slate-500">
+                Thriller<span className="text-muted">{" | "}</span>Drama
+                <span className="text-muted">{" | "}</span>Romance
+              </h4>
+              <div className="flex space-x-2">
+                <Button variant="outline">
+                  <Plus className="mr-2 h-4 w-4" />
+                  <span>Add to Watchlist</span>
+                </Button>
+                <Button variant="link">
+                  <Share className="mr-2 h-4 w-4" />
+                  <span>Share</span>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="w-full hidden lg:block lg:w-1/4 space-y-2">
           <h3 className="text-xl font-bold">
@@ -85,16 +117,7 @@ const Season = ({
           </ScrollArea>
         </div>
       </div>
-      <div className="flex w-full px-5">
-        <div className="w-full">
-          <h2 className="text-2xl tracking-tight font-extrabold">
-            {foundShow?.title}
-            {" - "}
-            {"Trailer"}
-          </h2>
-          <p className="text-sm text-slate-500">{foundShow?.desc}</p>
-        </div>
-      </div>
+
       <div className="w-full px-5 lg:hidden space-y-2">
         <h3 className="text-xl font-bold">
           <Select>

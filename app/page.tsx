@@ -1,6 +1,6 @@
 import RecommendedList from "@/components/home/RecommendedList";
 import TrendingList from "@/components/home/TrendingList";
-import WideShowCard from "@/components/layout/WideShowCard";
+import BannerCard from "@/components/layout/BannerCard";
 
 const params = {
   title: "Jujutsu Kaisen",
@@ -12,12 +12,13 @@ const params = {
   language: 2,
   subtitle: 8,
   seasons: [],
+  trailer: null,
 };
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 ">
-      <WideShowCard params={params} />
+      <BannerCard params={params} />
       <TrendingList />
       <RecommendedList />
     </main>

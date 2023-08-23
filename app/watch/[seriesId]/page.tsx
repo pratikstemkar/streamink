@@ -22,6 +22,7 @@ type Show = {
   thumbnail: string;
   seasons: Array<Season>;
   year: number;
+  trailer: string;
   language: number;
   subtitle: number;
 };
@@ -35,14 +36,15 @@ const Series = ({ params }: { params: { seriesId: string } }) => {
     thumbnail: foundShow?.thumbnail!,
     seasons: foundShow?.seasons!,
     year: foundShow?.year!,
+    trailer: foundShow?.trailer!,
     language: foundShow?.language!,
     subtitle: foundShow?.subtitle!,
   };
 
   return (
-    <main className="flex flex-col items-center justify-center px-5 lg:px-10 m-auto mt-5 space-y-5">
+    <main className="flex flex-col items-center justify-center  lg:px-10 m-auto lg:mt-5 space-y-5">
       <WideShowCard params={newShow} />
-      <div className="w-full space-y-2">
+      <div className="w-full px-5 lg:px-0 space-y-2">
         <div className="flex justify-between">
           <h2 className="text-xl font-bold">
             {foundShow?.seasons.length} Season
