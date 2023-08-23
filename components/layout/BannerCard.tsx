@@ -35,7 +35,7 @@ const BannerCard = ({
     <div className="w-full items-center mb-5">
       <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
         <div className="space-y-2 w-full lg:w-1/2 lg:px-0 lg:block">
-          <div className="hidden lg:block space-y-2">
+          <div className="hidden lg:block space-y-4">
             <h2 className="text-2xl lg:text-4xl tracking-tight font-extrabold">
               {params.title}
             </h2>
@@ -53,7 +53,7 @@ const BannerCard = ({
               Thriller<span className="text-muted">{" | "}</span>Drama
               <span className="text-muted">{" | "}</span>Romance
             </h4>
-            <div className="flex space-x-2">
+            {/* <div className="flex space-x-2">
               <Button variant="outline" size="sm">
                 <Plus className="mr-2 h-4 w-4" />
                 <span>Add to Watchlist</span>
@@ -62,12 +62,14 @@ const BannerCard = ({
                 <Share className="mr-2 h-4 w-4" />
                 <span>Share</span>
               </Button>
-            </div>
+            </div> */}
           </div>
-          <div className="lg:flex">
+          <div className="lg:flex space-x-2 items-center">
             <Link
               href={`/watch/${params.seriesId}${
-                params.seasons.length > 0 ? "/" + params?.seasons[0].season : ""
+                params.seasons?.length > 0
+                  ? "/" + params?.seasons[0].season
+                  : ""
               }`}
             >
               <Button
@@ -81,6 +83,17 @@ const BannerCard = ({
                       params?.seasons[0].season.length - 1
                     ]
                   : "Now"}
+              </Button>
+            </Link>
+            <Link
+              href={`/watch/${params.seriesId}${
+                params.seasons?.length > 0
+                  ? "/" + params?.seasons[0].season
+                  : ""
+              }`}
+            >
+              <Button className="w-full mt-1" variant="outline">
+                <Plus />
               </Button>
             </Link>
           </div>
