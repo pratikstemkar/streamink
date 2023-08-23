@@ -85,17 +85,6 @@ const BannerCard = ({
                   : "Now"}
               </Button>
             </Link>
-            <Link
-              href={`/watch/${params.seriesId}${
-                params.seasons?.length > 0
-                  ? "/" + params?.seasons[0].season
-                  : ""
-              }`}
-            >
-              <Button className="w-full mt-1" variant="outline">
-                <Plus />
-              </Button>
-            </Link>
           </div>
         </div>
         <div className="flex flex-col">

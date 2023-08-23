@@ -34,6 +34,11 @@ const VideoPlayer = (params: { videoUrl: string; autoPlay: boolean }) => {
             autoHideTimeout: 3,
             animated: true,
           },
+          doubleclickFullscreen: true,
+          controlForwardBackward: {
+            show: false, // Default: false,
+            doubleTapMobile: true, // Default: true
+          },
         },
       });
     }
