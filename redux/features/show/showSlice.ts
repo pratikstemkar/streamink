@@ -62,6 +62,6 @@ export const show = createSlice({
 export const { reset } = show.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-// export const selectShow = (state: RootState) => state.show.value;
+export const selectShow = (state: RootState) => state.show.value;
 
 export default show.reducer;
