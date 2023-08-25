@@ -1,8 +1,7 @@
 import { prop } from "@typegoose/typegoose";
 import { nanoid } from "nanoid";
-import { Season } from "./Season";
 
-export class Show {
+export class Episode {
   @prop({ default: () => nanoid(9), type: () => String })
   _id: string;
 
@@ -10,7 +9,7 @@ export class Show {
   title: string;
 
   @prop()
-  showId: string;
+  episodeId: string;
 
   @prop()
   description: string;
@@ -25,13 +24,10 @@ export class Show {
   subtitles: Array<string>;
 
   @prop()
-  trailer: string;
+  video: string;
 
   @prop()
   rating: string;
-
-  @prop()
-  seasons: Array<Season>;
 
   @prop()
   tags: Array<string>;
