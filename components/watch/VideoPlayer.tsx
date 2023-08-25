@@ -46,7 +46,7 @@ const VideoPlayer = (params: { videoUrl: string; autoPlay: boolean }) => {
 
   return (
     <>
-      <video ref={self}>
+      <video ref={self} className="lg:rounded-lg">
         <source
           src={params.videoUrl}
           data-fluid-hd
