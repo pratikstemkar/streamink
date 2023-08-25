@@ -1,6 +1,9 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import ShowCard from "../layout/ShowCard";
+import { useAppSelector } from "@/redux/hooks";
 
 const RecommendedList = () => {
   const recommended = [
@@ -42,6 +45,8 @@ const RecommendedList = () => {
     },
   ];
 
+  const shows = useAppSelector((state) => state.show.value);
+
   return (
     <div className="w-full space-y-2">
       <div className="flex justify-between">
@@ -50,6 +55,7 @@ const RecommendedList = () => {
           <ArrowRight />
         </Link>
       </div>
+      {JSON.stringify(shows)}
       <div className="columns-2 md:columns-6">
         {recommended?.map((series) => (
           <ShowCard

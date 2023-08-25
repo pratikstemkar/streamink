@@ -22,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <AuthProvider>
-            <ReduxProvider>
+        <ReduxProvider>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            <AuthProvider>
               <div className="min-h-screen flex flex-col justify-between">
                 <div>
                   <Navbar />
@@ -32,9 +32,9 @@ export default function RootLayout({
                 </div>
                 <Footer />
               </div>
-            </ReduxProvider>
-          </AuthProvider>
-        </ThemeProvider>
+            </AuthProvider>
+          </ThemeProvider>
+        </ReduxProvider>
       </body>
     </html>
   );
