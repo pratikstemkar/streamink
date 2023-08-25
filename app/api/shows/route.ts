@@ -1,6 +1,6 @@
-import { ShowModel } from "@/models";
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
+import Show from "@/models/Show";
 
 export async function POST(req: NextRequest) {
   const {
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
   };
   try {
     await dbConnect();
-    await ShowModel.create(show);
+    await Show.create(show);
     return NextResponse.json({ message: "Show Added to DB." }, { status: 201 });
   } catch (e) {
     return NextResponse.json({ message: "Error: " + e }, { status: 500 });
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   try {
     await dbConnect();
-    const shows = await ShowModel.find({});
+    const shows = await Show.find({});
     return NextResponse.json(
       { message: "Shows Found!", shows },
       { status: 200 }

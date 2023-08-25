@@ -14,9 +14,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "strictPropertyInitialization": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "plugins": [
       {
         "name": "next"
