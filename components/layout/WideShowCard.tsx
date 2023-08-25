@@ -43,7 +43,9 @@ const WideShowCard = ({
             {" • "}
             {params.seasons?.length} Season{" • "}
             {params.language} Languages{" • "}
-            <span className="bg-slate-500 rounded-sm px-1 py-0.5">U/A 16+</span>
+            <span className="dark:bg-slate-500 bg-slate-200 rounded-sm px-1 py-0.5">
+              U/A 16+
+            </span>
           </h4>
           <p className="text-sm lg:text-base text-slate-500">{params.desc}</p>
           <h4 className="font-semibold text-sm text-slate-500">
@@ -84,7 +86,7 @@ const WideShowCard = ({
           </div>
         </div>
         <div className="flex flex-col">
-          <div className="relative overflow-hidden lg:rounded-lg shadow-lg">
+          <div className="relative overflow-hidden">
             {!params.trailer && (
               <>
                 <Image

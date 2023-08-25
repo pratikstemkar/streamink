@@ -1,6 +1,9 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import ShowCard from "../layout/ShowCard";
+import { useAppSelector } from "@/redux/hooks";
 
 const RecommendedList = () => {
   const recommended = [
@@ -41,6 +44,8 @@ const RecommendedList = () => {
         "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266342/iotnbo_aseyzv.jpg",
     },
   ];
+
+  const shows = useAppSelector((state) => state.show.value);
 
   return (
     <div className="w-full space-y-2">

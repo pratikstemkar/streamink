@@ -45,115 +45,100 @@ const Login = () => {
   };
 
   return (
-    <div className="columns-2">
-      <div className="">
-        <Image
-          src="https://res.cloudinary.com/doa2rj1yw/image/upload/v1692613369/netflix-back_zwhku2.jpg"
-          alt="back"
-          fill
-          style={{ objectFit: "cover" }}
-          className="blur-sm"
-        />
-        <div className="absolute w-full flex items-center justify-center my-10 lg:my-20">
-          <Tabs defaultValue="login" className="flex flex-col">
-            <TabsList>
-              <TabsTrigger value="login" className="w-full">
+    <div className="w-full flex items-center justify-center">
+      <Tabs defaultValue="login" className="flex flex-col">
+        <TabsList>
+          <TabsTrigger value="login" className="w-full">
+            Sign In
+          </TabsTrigger>
+          <TabsTrigger value="register" className="w-full">
+            Create Account
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="login">
+          <Card>
+            <CardHeader className="space-y-1">
+              <CardTitle className="text-2xl">Sign In</CardTitle>
+              <CardDescription>
+                Enter your email below to create your account
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-4">
+              <div className="grid grid-cols-2 gap-6">
+                <Button variant="outline" onClick={githubLogin}>
+                  <Icons.gitHub className="mr-2 h-4 w-4" />
+                  Github
+                </Button>
+                <Button variant="outline" onClick={googleLogin}>
+                  <Icons.google className="mr-2 h-4 w-4" />
+                  Google
+                </Button>
+              </div>
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-background px-2 text-muted-foreground">
+                    Or continue with
+                  </span>
+                </div>
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="m@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full" onClick={credentialsLogin}>
                 Sign In
-              </TabsTrigger>
-              <TabsTrigger value="register" className="w-full">
-                Create Account
-              </TabsTrigger>
-            </TabsList>
-            <TabsContent value="login">
-              <Card>
-                <CardHeader className="space-y-1">
-                  <CardTitle className="text-2xl">Sign In</CardTitle>
-                  <CardDescription>
-                    Enter your email below to create your account
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="grid gap-4">
-                  <div className="grid grid-cols-2 gap-6">
-                    <Button variant="outline" onClick={githubLogin}>
-                      <Icons.gitHub className="mr-2 h-4 w-4" />
-                      Github
-                    </Button>
-                    <Button variant="outline" onClick={googleLogin}>
-                      <Icons.google className="mr-2 h-4 w-4" />
-                      Google
-                    </Button>
-                  </div>
-                  <div className="relative">
-                    <div className="absolute inset-0 flex items-center">
-                      <span className="w-full border-t" />
-                    </div>
-                    <div className="relative flex justify-center text-xs uppercase">
-                      <span className="bg-background px-2 text-muted-foreground">
-                        Or continue with
-                      </span>
-                    </div>
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="m@example.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="password">Password</Label>
-                    <Input
-                      id="password"
-                      type="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full" onClick={credentialsLogin}>
-                    Sign In
-                  </Button>
-                </CardFooter>
-              </Card>
-            </TabsContent>
-            <TabsContent value="register">
-              <Card>
-                <CardHeader className="space-y-1">
-                  <CardTitle className="text-2xl">Create an account</CardTitle>
-                  <CardDescription>
-                    Enter your email below to create your account
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="grid gap-4">
-                  <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="m@example.com"
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="password">Password</Label>
-                    <Input id="password" type="password" />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="password">Confirm Password</Label>
-                    <Input id="password" type="password" />
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full">Create account</Button>
-                </CardFooter>
-              </Card>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </div>
+              </Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+        <TabsContent value="register">
+          <Card>
+            <CardHeader className="space-y-1">
+              <CardTitle className="text-2xl">Create an account</CardTitle>
+              <CardDescription>
+                Enter your email below to create your account
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-4">
+              <div className="grid gap-2">
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" placeholder="m@example.com" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="password">Password</Label>
+                <Input id="password" type="password" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="password">Confirm Password</Label>
+                <Input id="password" type="password" />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full">Create account</Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

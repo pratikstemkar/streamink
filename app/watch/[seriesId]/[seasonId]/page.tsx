@@ -31,7 +31,7 @@ const Season = ({
           <div>
             <VideoPlayer videoUrl={foundShow?.trailer!} autoPlay={false} />
           </div>
-          <div className="flex w-full px-5">
+          <div className="flex w-full px-5 mt-2">
             <div className="w-full space-y-2">
               <h2 className="text-2xl lg:text-4xl tracking-tight font-extrabold">
                 {foundShow?.title}
@@ -43,7 +43,7 @@ const Season = ({
                 {" • "}
                 {foundShow?.seasons.length} Season{" • "}
                 {foundShow?.language} Languages{" • "}
-                <span className="bg-slate-500 rounded-sm px-1 py-0.5">
+                <span className="dark:bg-slate-500 bg-slate-200 rounded-sm px-1 py-0.5">
                   U/A 16+
                 </span>
               </h4>
@@ -55,11 +55,11 @@ const Season = ({
                 <span className="text-muted">{" | "}</span>Romance
               </h4>
               <div className="flex space-x-2">
-                <Button variant="outline">
+                <Button variant="outline" size="sm">
                   <Plus className="mr-2 h-4 w-4" />
                   <span>Add to Watchlist</span>
                 </Button>
-                <Button variant="link">
+                <Button variant="link" size="sm">
                   <Share className="mr-2 h-4 w-4" />
                   <span>Share</span>
                 </Button>
@@ -67,10 +67,10 @@ const Season = ({
             </div>
           </div>
         </div>
-        <div className="w-full hidden lg:block lg:w-1/4 space-y-2">
+        <div className="w-full lg:w-1/4 space-y-2 px-5 lg:px-0">
           <h3 className="text-xl font-bold">
             <Select>
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-[155px]">
                 <SelectValue
                   placeholder={
                     "Season " + params.seasonId[params.seasonId.length - 1]
@@ -86,77 +86,33 @@ const Season = ({
               </SelectContent>
             </Select>
           </h3>
-          <ScrollArea className="w-full h-[400px] lg:h-[715px] rounded-lg border">
-            <div className="p-4">
-              <h4 className="mb-4 text-sm font-medium leading-none">
-                Season {foundSeason?.season[foundSeason.season.length - 1]}
-              </h4>
-              {foundSeason?.episodes.map((episode) => (
-                <div key={episode.episode}>
-                  <div className="text-sm flex space-x-2 p-2 rounded-lg hover:cursor-pointer dark:hover:bg-slate-900 hover:bg-slate-100">
-                    <Image
-                      src={episode.thumbnail}
-                      alt="episode image"
-                      height={200}
-                      width={200}
-                      className="rounded-lg"
-                    />
-                    <div className="flex-col justify-between hidden lg:block">
-                      <div>
-                        <h3 className="font-bold">{episode.title}</h3>
-                        <p className="text-slate-500 text-sm">
-                          Lorem ipsum dolor sit amet consectetur...
-                        </p>
-                      </div>
-                      <span className="text-xs">43 mins</span>
+          <div>
+            {foundSeason?.episodes.map((episode) => (
+              <div key={episode.episode}>
+                <div className="text-sm flex space-x-2 p-2 rounded-lg hover:cursor-pointer dark:hover:bg-slate-900 hover:bg-slate-100">
+                  <Image
+                    src={episode.thumbnail}
+                    alt="episode image"
+                    height={150}
+                    width={150}
+                    className="rounded-lg"
+                  />
+                  <div className="flex-col justify-between space-y-1">
+                    <div>
+                      <h3 className="font-bold">{episode.title}</h3>
+                      <p className="text-slate-500 text-xs">
+                        Lorem ipsum dolor sit amet consectetur...
+                      </p>
                     </div>
+                    <span className="text-xs dark:bg-indigo-500 bg-indigo-200 px-1 py-0.5 rounded-sm">
+                      43 mins
+                    </span>
                   </div>
                 </div>
-              ))}
-            </div>
-          </ScrollArea>
-        </div>
-      </div>
-
-      <div className="w-full px-5 lg:hidden space-y-2">
-        <h3 className="text-xl font-bold">
-          <Select>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue
-                placeholder={
-                  "Season " + params.seasonId[params.seasonId.length - 1]
-                }
-              />
-            </SelectTrigger>
-            <SelectContent>
-              {foundShow?.seasons.map((season) => (
-                <SelectItem value={season.season} key={season.season}>
-                  Season {season.season[season.season.length - 1]}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </h3>
-        {foundSeason?.episodes.map((episode) => (
-          <div className="columns-1 flex space-x-2 py-1" key={episode.episode}>
-            <Image
-              src={episode.thumbnail}
-              alt="episode image"
-              height={150}
-              width={150}
-              className="rounded-lg"
-            />
-            <div className="flex-col justify-between">
-              <div>
-                <h3 className="font-bold">{episode.title}</h3>
-                <p className="text-slate-500 text-sm">
-                  Lorem ipsum dolor sit amet consectetur...
-                </p>
               </div>
-              <span className="text-xs">43 mins</span>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </main>
   );

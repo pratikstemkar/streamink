@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="font-mono text-xs lg:text-sm text-slate-500 flex items-center justify-center p-5 bottom-0 z-10 bg-slate-950">
+    <footer className="font-mono text-xs lg:text-sm text-slate-500 flex items-center justify-center p-5 bottom-0 z-10 dark:bg-slate-950">
       <div>
         Built by{" "}
         <Link

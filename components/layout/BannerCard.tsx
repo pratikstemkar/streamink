@@ -44,7 +44,7 @@ const BannerCard = ({
               {" • "}
               {params.seasons?.length} Season{" • "}
               {params.language} Languages{" • "}
-              <span className="bg-slate-500 rounded-sm px-1 py-0.5">
+              <span className="dark:bg-slate-500 bg-slate-200 rounded-sm px-1 py-0.5">
                 U/A 16+
               </span>
             </h4>
