@@ -26,10 +26,10 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <AuthProvider>
               <div className="min-h-screen flex flex-col justify-between">
-                <div>
-                  <Navbar />
-                  {children}
-                </div>
+                {/* <div> */}
+                <Navbar />
+                {children}
+                {/* </div> */}
                 <Footer />
               </div>
             </AuthProvider>

@@ -2,6 +2,7 @@ import WideShowCard from "@/components/layout/WideShowCard";
 import Image from "next/image";
 import Link from "next/link";
 import { series } from "@/data/series";
+import { notFound } from "next/navigation";
 
 type Episode = {
   episode: string;
@@ -29,6 +30,9 @@ type Show = {
 
 const Series = ({ params }: { params: { seriesId: string } }) => {
   const foundShow = series?.find((show) => show.seriesId === params.seriesId);
+  if (!foundShow) {
+    notFound();
+  }
   const newShow: Show = {
     title: foundShow?.title!,
     seriesId: foundShow?.seriesId!,

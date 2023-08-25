@@ -8,21 +8,14 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  AlignJustifyIcon,
-  LogIn,
-  LogOut,
-  SnowflakeIcon,
-  Sparkles,
-  User,
-} from "lucide-react";
+import { AlignJustifyIcon, LogIn, LogOut, Sparkles, User } from "lucide-react";
 
 import { signOut, useSession } from "next-auth/react";
 import UserAvatar from "./UserAvatar";
+import ThemeMenu from "./ThemeMenu";
+import { ModeToggle } from "./ModeToggle";
 
 const Navbar = () => {
   const { data: session } = useSession({
@@ -71,6 +64,7 @@ const Navbar = () => {
                   <span>Sign In</span>
                 </Button>
               </Link>
+              <ModeToggle />
             </>
           )}
         </div>
@@ -98,6 +92,7 @@ const Navbar = () => {
                       <span>Profile</span>
                     </DropdownMenuItem>
                   </Link>
+                  <ThemeMenu />
                   <DropdownMenuItem
                     onClick={() =>
                       signOut({ redirect: true, callbackUrl: "/" })
@@ -116,6 +111,7 @@ const Navbar = () => {
                       <span className="text-yellow-500">Subscribe</span>
                     </DropdownMenuItem>
                   </Link>
+                  <ThemeMenu />
                   <Link href="/login">
                     <DropdownMenuItem>
                       <LogIn className="mr-2 h-4 w-4" />

@@ -55,7 +55,6 @@ const RecommendedList = () => {
           <ArrowRight />
         </Link>
       </div>
-      {JSON.stringify(shows)}
       <div className="columns-2 md:columns-6">
         {recommended?.map((series) => (
           <ShowCard
