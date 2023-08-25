@@ -34,6 +34,11 @@ const VideoPlayer = (params: { videoUrl: string; autoPlay: boolean }) => {
             autoHideTimeout: 3,
             animated: true,
           },
+          doubleclickFullscreen: true,
+          controlForwardBackward: {
+            show: false, // Default: false,
+            doubleTapMobile: true, // Default: true
+          },
         },
       });
     }
@@ -41,7 +46,7 @@ const VideoPlayer = (params: { videoUrl: string; autoPlay: boolean }) => {
 
   return (
     <>
-      <video ref={self}>
+      <video ref={self} className="lg:rounded-lg">
         <source
           src={params.videoUrl}
           data-fluid-hd

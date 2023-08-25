@@ -30,6 +30,7 @@
     "fluid-player": "^3.22.0",
     "hls.js": "^1.4.10",
     "lucide-react": "^0.268.0",
+    "mongoose": "^7.4.4",
     "next": "13.4.16",
     "next-auth": "^4.23.1",
     "next-themes": "^0.2.1",

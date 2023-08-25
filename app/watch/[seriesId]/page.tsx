@@ -42,16 +42,17 @@ const Series = ({ params }: { params: { seriesId: string } }) => {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center  lg:px-10 m-auto lg:mt-5 space-y-5">
+    <main className="flex flex-col items-center justify-center  lg:px-10 m-auto lg:mt-5">
       <WideShowCard params={newShow} />
       <div className="w-full px-5 lg:px-0 space-y-2">
         <div className="flex justify-between">
           <h2 className="text-xl font-bold">
-            {foundShow?.seasons.length} Season
+            {foundShow?.seasons?.length} Season
+            {foundShow?.seasons?.length! > 1 ? "s" : ""}
           </h2>
         </div>
         <div className="columns-2 lg:columns-6">
-          {foundShow?.seasons.map((season) => (
+          {foundShow?.seasons?.map((season) => (
             <Link
               href={`/watch/${foundShow?.seriesId}/${season.season}`}
               key={season.season}

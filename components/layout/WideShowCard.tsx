@@ -63,7 +63,9 @@ const WideShowCard = ({
           <div className="lg:flex">
             <Link
               href={`/watch/${params.seriesId}${
-                params.seasons.length > 0 ? "/" + params?.seasons[0].season : ""
+                params.seasons?.length > 0
+                  ? "/" + params?.seasons[0].season
+                  : ""
               }`}
             >
               <Button
@@ -71,7 +73,7 @@ const WideShowCard = ({
                 size="lg"
               >
                 Watch{" "}
-                {params.seasons.length > 0
+                {params.seasons?.length > 0
                   ? "Season " +
                     params?.seasons[0].season[
                       params?.seasons[0].season.length - 1
