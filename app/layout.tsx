@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import AuthProvider from "@/components/context/AuthProvider";
+import { ReduxProvider } from "@/redux/providers/ReduxProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,13 +24,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <AuthProvider>
-            <div className="min-h-screen flex flex-col justify-between">
-              <div>
-                <Navbar />
-                {children}
+            <ReduxProvider>
+              <div className="min-h-screen flex flex-col justify-between">
+                <div>
+                  <Navbar />
+                  {children}
+                </div>
+                <Footer />
               </div>
-              <Footer />
-            </div>
+            </ReduxProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>
