@@ -15,23 +15,27 @@ import { notFound } from "next/navigation";
 import { IEpisode, ISeason } from "@/lib/types";
 import { limitStringToWords } from "@/lib/utils";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { showId: string; seasonId: string };
-}): Promise<Metadata> {
-  const foundShow = await getShow(params.showId);
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: { showId: string; seasonId: string };
+// }): Promise<Metadata> {
+//   const foundShow = await getShow(params.showId);
 
-  const foundSeason = foundShow?.show.seasons.find(
-    (season: ISeason) => season.seasonId === params.seasonId
-  );
-  return {
-    title:
-      foundShow?.show.title +
-      " - Season " +
-      foundSeason?.seasonId[foundSeason?.seasonId.length - 1],
-  };
-}
+//   if (foundShow) {
+//     const foundSeason = foundShow?.show.seasons.find(
+//       (season: ISeason) => season.seasonId === params.seasonId
+//     );
+//     return {
+//       title:
+//         foundShow?.show.title +
+//         " - Season " +
+//         foundSeason?.seasonId[foundSeason?.seasonId.length - 1],
+//     };
+//   }
+
+//   return {};
+// }
 
 async function getShow(showId: string) {
   const res = await fetch(
@@ -119,28 +123,30 @@ const Season = async ({
               </SelectContent>
             </Select>
           </h3>
-          {foundSeason?.episodes.map((episode: IEpisode) => (
-            <div key={episode.episodeId}>
-              <div className="text-sm flex space-x-2 p-2 rounded-lg hover:cursor-pointer dark:hover:bg-slate-900 hover:bg-slate-100">
-                <Image
-                  src={episode.thumbnail}
-                  alt="episode image"
-                  height={150}
-                  width={150}
-                  className="rounded-lg"
-                />
-                <div className="flex-col justify-between space-y-1">
-                  <h3 className="font-bold">
-                    {"Episode " + episode.episodeId.slice(2)}
-                  </h3>
-                  <p className="text-slate-500 text-xs">
-                    {limitStringToWords(episode.description, 8)}
-                  </p>
-                  <div className="text-xs">{episode.duration} mins</div>
+          <div>
+            {foundSeason?.episodes.map((episode: IEpisode) => (
+              <div key={episode.episodeId}>
+                <div className="text-sm flex space-x-2 p-2 rounded-lg hover:cursor-pointer dark:hover:bg-slate-900 hover:bg-slate-100">
+                  <Image
+                    src={episode.thumbnail}
+                    alt="episode image"
+                    height={150}
+                    width={150}
+                    className="rounded-lg"
+                  />
+                  <div className="flex-col justify-between space-y-1">
+                    <h3 className="font-bold">
+                      {"Episode " + episode.episodeId.slice(2)}
+                    </h3>
+                    <p className="text-slate-500 text-xs">
+                      {limitStringToWords(episode.description, 8)}
+                    </p>
+                    <div className="text-xs">{episode.duration} mins</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </main>

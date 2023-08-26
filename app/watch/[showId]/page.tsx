@@ -5,19 +5,16 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { ISeason } from "@/lib/types";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { showId: string };
-}): Promise<Metadata> {
-  const foundShow = await getShow(params.showId);
-  if (!foundShow) {
-    notFound();
-  }
-  return {
-    title: foundShow?.show.title,
-  };
-}
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: { showId: string };
+// }): Promise<Metadata> {
+//   const foundShow = await getShow(params.showId);
+//   return {
+//     title: foundShow?.show.title,
+//   };
+// }
 
 async function getShow(showId: string) {
   const res = await fetch(
@@ -43,14 +40,14 @@ const Series = async ({ params }: { params: { showId: string } }) => {
       <div className="w-full px-5 lg:px-0 space-y-2">
         <div className="flex justify-between">
           <h2 className="text-xl font-bold">
-            {foundShow?.show.seasons?.length} Season
-            {foundShow?.show.seasons?.length! > 1 ? "s" : ""}
+            {foundShow?.show?.seasons?.length} Season
+            {foundShow?.show?.seasons?.length! > 1 ? "s" : ""}
           </h2>
         </div>
         <div className="columns-2 lg:columns-6">
-          {foundShow?.show.seasons?.map((season: ISeason) => (
+          {foundShow.show.seasons?.map((season: ISeason) => (
             <Link
-              href={`/watch/${foundShow?.show.seriesId}/${season.seasonId}`}
+              href={`/watch/${foundShow?.show.showId}/${season.seasonId}`}
               key={season.seasonId}
             >
               <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">

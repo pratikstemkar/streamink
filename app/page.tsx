@@ -32,7 +32,7 @@ export default async function Home() {
   const featuredShow = getFeaturedShow(showsData);
   return (
     <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 ">
-      {/* {JSON.stringify(featuredShow)} */}
+      {/* {JSON.stringify(showsData)} */}
       <BannerCard params={featuredShow!} />
       <TrendingList />
       <RecommendedList />
