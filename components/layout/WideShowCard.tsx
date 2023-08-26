@@ -87,25 +87,25 @@ const WideShowCard = ({
         </div>
         <div className="flex flex-col">
           <div className="relative overflow-hidden">
-            {!params.trailer && (
-              <>
-                <Image
-                  className="rounded-lg"
-                  src={params.thumbnail}
-                  width={800}
-                  height={100}
-                  alt="image"
-                />
-                <div className="absolute bottom-0 left-0 px-2 py-1 lg:hidden">
-                  <h4 className="text-xl font-semibold tracking-tight text-white">
-                    {params.title}
-                  </h4>
-                </div>
-              </>
-            )}
-            {params.trailer && (
+            {/* {!params.trailer && ( */}
+            <>
+              <Image
+                className="rounded-lg"
+                src={params.thumbnail}
+                width={800}
+                height={100}
+                alt="image"
+              />
+              <div className="absolute bottom-0 left-0 px-2 py-1 lg:hidden">
+                <h4 className="text-xl font-semibold tracking-tight text-white">
+                  {params.title}
+                </h4>
+              </div>
+            </>
+            {/* )} */}
+            {/* {params.trailer && (
               <VideoPlayer videoUrl={params.trailer} autoPlay={true} />
-            )}
+            )} */}
           </div>
         </div>
       </div>
