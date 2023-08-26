@@ -1,78 +1,57 @@
 import WideShowCard from "@/components/layout/WideShowCard";
 import Image from "next/image";
 import Link from "next/link";
-import { series } from "@/data/series";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { ISeason } from "@/lib/types";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { seriesId: string };
+  params: { showId: string };
 }): Promise<Metadata> {
-  const foundShow = series?.find((show) => show.seriesId === params.seriesId);
-
-  return {
-    title: foundShow?.title,
-  };
-}
-
-type Episode = {
-  episode: string;
-  title: string;
-  thumbnail: string;
-};
-
-type Season = {
-  season: string;
-  thumbnail: string;
-  episodes: Array<Episode>;
-};
-
-type Show = {
-  title: string;
-  seriesId: string;
-  desc: string;
-  thumbnail: string;
-  seasons: Array<Season>;
-  year: number;
-  trailer: string;
-  language: number;
-  subtitle: number;
-};
-
-const Series = ({ params }: { params: { seriesId: string } }) => {
-  const foundShow = series?.find((show) => show.seriesId === params.seriesId);
+  const foundShow = await getShow(params.showId);
   if (!foundShow) {
     notFound();
   }
-  const newShow: Show = {
-    title: foundShow?.title!,
-    seriesId: foundShow?.seriesId!,
-    desc: foundShow?.desc!,
-    thumbnail: foundShow?.thumbnail!,
-    seasons: foundShow?.seasons!,
-    year: foundShow?.year!,
-    trailer: foundShow?.trailer!,
-    language: foundShow?.language!,
-    subtitle: foundShow?.subtitle!,
+  return {
+    title: foundShow?.show.title,
   };
+}
+
+async function getShow(showId: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/${showId}`
+  );
+  if (!res.ok) {
+    throw new Error("Show not Found!");
+  }
+
+  return res.json();
+}
+
+const Series = async ({ params }: { params: { showId: string } }) => {
+  const foundShow = await getShow(params.showId);
+  if (!foundShow) {
+    notFound();
+  }
 
   return (
     <main className="flex flex-col items-center justify-center  lg:px-10 m-auto lg:mt-5">
-      <WideShowCard params={newShow} />
+      {/* {JSON.stringify(foundShow.show)} */}
+      <WideShowCard params={foundShow.show} />
       <div className="w-full px-5 lg:px-0 space-y-2">
         <div className="flex justify-between">
           <h2 className="text-xl font-bold">
-            {foundShow?.seasons?.length} Season
-            {foundShow?.seasons?.length! > 1 ? "s" : ""}
+            {foundShow?.show.seasons?.length} Season
+            {foundShow?.show.seasons?.length! > 1 ? "s" : ""}
           </h2>
         </div>
         <div className="columns-2 lg:columns-6">
-          {foundShow?.seasons?.map((season) => (
+          {foundShow?.show.seasons?.map((season: ISeason) => (
             <Link
-              href={`/watch/${foundShow?.seriesId}/${season.season}`}
-              key={season.season}
+              href={`/watch/${foundShow?.show.seriesId}/${season.seasonId}`}
+              key={season.seasonId}
             >
               <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">
                 <Image
@@ -84,7 +63,7 @@ const Series = ({ params }: { params: { seriesId: string } }) => {
                 />
                 <div className="absolute bottom-0 left-0 px-2 py-1">
                   <h4 className="text-sm lg:text-xl font-semibold tracking-tight text-white">
-                    Season {season.season[season.season.length - 1]}
+                    Season {season.seasonId[season.seasonId.length - 1]}
                   </h4>
                 </div>
               </div>

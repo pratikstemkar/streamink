@@ -1,25 +1,15 @@
-interface IEpisode {
-  title: string;
+export interface IEpisode {
   episodeId: string;
   description: string;
   thumbnail: string;
-  date: string;
-  subtitles: Array<string>;
   video: string;
-  rating: string;
-  tags: Array<string>;
+  duration: number;
 }
 
-interface ISeason {
+export interface ISeason {
   seasonId: string;
-  description: string;
   thumbnail: string;
-  trailer: string;
-  date: string;
-  subtitles: Array<string>;
   episodes: Array<IEpisode>;
-  rating: string;
-  tags: Array<string>;
 }
 
 export interface IShow {
@@ -33,4 +23,9 @@ export interface IShow {
   rating: string;
   seasons: Array<ISeason>;
   tags: Array<string>;
+}
+
+export interface IShowsData {
+  message: string;
+  shows: Array<IShow>;
 }

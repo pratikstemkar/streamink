@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "occ-0-4608-2164.1.nflxso.net",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

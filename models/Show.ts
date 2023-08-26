@@ -1,41 +1,5 @@
+import { IShow } from "@/lib/types";
 import { Model, Schema, model, models } from "mongoose";
-
-interface IEpisode {
-  title: string;
-  episodeId: string;
-  description: string;
-  thumbnail: string;
-  date: string;
-  subtitles: Array<string>;
-  video: string;
-  rating: string;
-  tags: Array<string>;
-}
-
-interface ISeason {
-  seasonId: string;
-  description: string;
-  thumbnail: string;
-  trailer: string;
-  date: string;
-  subtitles: Array<string>;
-  episodes: Array<IEpisode>;
-  rating: string;
-  tags: Array<string>;
-}
-
-interface IShow {
-  title: string;
-  showId: string;
-  description: string;
-  thumbnail: string;
-  date: string;
-  subtitles: Array<string>;
-  trailer: string;
-  rating: string;
-  seasons: Array<ISeason>;
-  tags: Array<string>;
-}
 
 interface IShowMethods {
   getTitle(): string;
@@ -55,26 +19,16 @@ const schema = new Schema<IShow, ShowModel, IShowMethods>({
   seasons: [
     {
       seasonId: { type: String },
-      description: { type: String },
       thumbnail: { type: String },
-      trailer: { type: String },
-      date: { type: String },
-      subtitles: { type: [String] },
       episodes: [
         {
-          title: { type: String },
           episodeId: { type: String },
           description: { type: String },
           thumbnail: { type: String },
-          date: { type: String },
-          subtitles: { type: [String] },
           video: { type: String },
-          rating: { type: String },
-          tags: { type: [String] },
+          duration: { type: Number },
         },
       ],
-      rating: { type: String },
-      tags: { type: [String] },
     },
   ],
   tags: { type: [String] },

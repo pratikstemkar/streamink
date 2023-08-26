@@ -3,34 +3,9 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { Plus, PlusIcon, Share } from "lucide-react";
 import VideoPlayer from "../watch/VideoPlayer";
+import { IShow } from "@/lib/types";
 
-type Episode = {
-  episode: string;
-  title: string;
-  thumbnail: string;
-};
-
-type Season = {
-  season: string;
-  episodes: Array<Episode>;
-  thumbnail: string;
-};
-
-const WideShowCard = ({
-  params,
-}: {
-  params: {
-    title: string;
-    seriesId: string;
-    thumbnail: string;
-    desc: string;
-    year: number;
-    language: number;
-    subtitle: number;
-    trailer: string | null;
-    seasons: Array<Season>;
-  };
-}) => {
+const WideShowCard = ({ params }: { params: IShow }) => {
   return (
     <div className="w-full items-center mb-5">
       <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
@@ -39,18 +14,26 @@ const WideShowCard = ({
             {params.title}
           </h2>
           <h4 className="font-semibold text-sm">
-            {params.year}
+            {params.date.slice(-4)}
             {" • "}
             {params.seasons?.length} Season{" • "}
-            {params.language} Languages{" • "}
+            {params.subtitles.length} Languages{" • "}
             <span className="dark:bg-slate-500 bg-slate-200 rounded-sm px-1 py-0.5">
-              U/A 16+
+              {params.rating}
             </span>
           </h4>
-          <p className="text-sm lg:text-base text-slate-500">{params.desc}</p>
+          <p className="text-sm lg:text-base text-slate-500">
+            {params.description}
+          </p>
           <h4 className="font-semibold text-sm text-slate-500">
-            Thriller<span className="text-muted">{" | "}</span>Drama
-            <span className="text-muted">{" | "}</span>Romance
+            {params.tags?.map((tag, index) => (
+              <>
+                {tag}
+                {index !== params.tags?.length - 1 ? (
+                  <span className="text-muted">{" | "}</span>
+                ) : null}
+              </>
+            ))}
           </h4>
           <div className="flex space-x-2">
             <Button variant="outline" size="sm">
@@ -64,9 +47,9 @@ const WideShowCard = ({
           </div>
           <div className="lg:flex">
             <Link
-              href={`/watch/${params.seriesId}${
+              href={`/watch/${params.showId}${
                 params.seasons?.length > 0
-                  ? "/" + params?.seasons[0].season
+                  ? "/" + params?.seasons[0].seasonId
                   : ""
               }`}
             >
@@ -77,8 +60,8 @@ const WideShowCard = ({
                 Watch{" "}
                 {params.seasons?.length > 0
                   ? "Season " +
-                    params?.seasons[0].season[
-                      params?.seasons[0].season.length - 1
+                    params?.seasons[0].seasonId[
+                      params?.seasons[0].seasonId.length - 1
                     ]
                   : "Now"}
               </Button>

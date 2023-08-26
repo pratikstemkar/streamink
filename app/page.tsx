@@ -1,6 +1,7 @@
 import RecommendedList from "@/components/home/RecommendedList";
 import TrendingList from "@/components/home/TrendingList";
 import BannerCard from "@/components/layout/BannerCard";
+import { getFeaturedShow } from "@/lib/utils";
 
 const params = {
   title: "Jujutsu Kaisen",
@@ -28,9 +29,11 @@ const getShows = async () => {
 
 export default async function Home() {
   const showsData = await getShows();
+  const featuredShow = getFeaturedShow(showsData);
   return (
     <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 ">
-      <BannerCard params={params} />
+      {/* {JSON.stringify(featuredShow)} */}
+      <BannerCard params={featuredShow!} />
       <TrendingList />
       <RecommendedList />
     </main>
