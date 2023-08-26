@@ -73,7 +73,7 @@ const BannerCard = ({
               }`}
             >
               <Button
-                className="w-full lg:shadow-lg lg:shadow-indigo-500/50 mt-1"
+                className="w-full lg:shadow-lg lg:shadow-indigo-500/50 mt-1 lg:hover:scale-x-105 lg:transition lg:ease-in-out lg:delay-150 lg:duration-300"
                 size="lg"
               >
                 Watch{" "}

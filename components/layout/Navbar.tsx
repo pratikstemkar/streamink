@@ -26,13 +26,6 @@ const Navbar = () => {
     <header className="sticky top-0 z-10 border-b dark:bg-slate-950 bg-white">
       <nav className="py-2 px-5 lg:px-12 flex justify-between items-center m-auto">
         <div className="flex space-x-1 items-center justify-center">
-          <Image
-            src="/live.png"
-            height={30}
-            width={30}
-            alt="logo"
-            className="dark:invert"
-          />
           <h1 className="text-2xl lg:text-3xl font-extrabold leading-none tracking-tight hover:text-purple-600 flex items-center">
             <Link href="/">{process.env.NEXT_PUBLIC_APP_NAME}</Link>
           </h1>
@@ -59,7 +52,7 @@ const Navbar = () => {
                 </Button>
               </Link>
               <Link href="/login">
-                <Button variant="outline" size="sm">
+                <Button variant="default" size="sm">
                   <LogIn className="mr-2 h-4 w-4" />
                   <span>Sign In</span>
                 </Button>
@@ -71,8 +64,8 @@ const Navbar = () => {
         <div className="flex items-center space-x-2 lg:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <Button variant="outline" size="icon">
-                <AlignJustifyIcon className="h-[1.2rem] w-[1.2rem]" />
+              <Button variant="outline" size="sm">
+                <AlignJustifyIcon className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>

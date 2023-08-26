@@ -48,7 +48,7 @@ const TrendingList = () => {
       <div className="flex justify-between">
         <h2 className="text-xl font-bold">Trending Now</h2>
         <Link href="/browse/trending">
-          <ArrowRight />
+          <ArrowRight className="hover:scale-x-125" />
         </Link>
       </div>
       <div className="columns-2 md:columns-6">

@@ -52,7 +52,7 @@ const RecommendedList = () => {
       <div className="flex justify-between">
         <h2 className="text-xl font-bold">Recommended for You</h2>
         <Link href="/browse/recommended">
-          <ArrowRight />
+          <ArrowRight className="hover:scale-x-125" />
         </Link>
       </div>
       <div className="columns-2 md:columns-6">

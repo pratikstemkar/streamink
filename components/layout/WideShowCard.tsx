@@ -71,7 +71,7 @@ const WideShowCard = ({
               }`}
             >
               <Button
-                className="w-full lg:shadow-lg lg:shadow-indigo-500/50 mt-1"
+                className="w-full lg:shadow-lg lg:shadow-indigo-500/50 mt-1 lg:hover:scale-x-105 lg:transition lg:ease-in-out lg:delay-150 lg:duration-300"
                 size="lg"
               >
                 Watch{" "}
@@ -85,7 +85,7 @@ const WideShowCard = ({
             </Link>
           </div>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col px-5 pt-5 pb-2 lg:p-0">
           <div className="relative overflow-hidden">
             {/* {!params.trailer && ( */}
             <>
@@ -96,11 +96,11 @@ const WideShowCard = ({
                 height={100}
                 alt="image"
               />
-              <div className="absolute bottom-0 left-0 px-2 py-1 lg:hidden">
+              {/* <div className="absolute bottom-0 left-0 px-2 py-1 lg:hidden">
                 <h4 className="text-xl font-semibold tracking-tight text-white">
                   {params.title}
                 </h4>
-              </div>
+              </div> */}
             </>
             {/* )} */}
             {/* {params.trailer && (
