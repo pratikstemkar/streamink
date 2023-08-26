@@ -14,6 +14,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "images-eu.ssl-images-amazon.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
