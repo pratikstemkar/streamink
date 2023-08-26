@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Subscribe",
+};
 
 const Subscribe = () => {
   return (

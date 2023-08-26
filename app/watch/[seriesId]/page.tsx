@@ -3,6 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { series } from "@/data/series";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { seriesId: string };
+}): Promise<Metadata> {
+  const foundShow = series?.find((show) => show.seriesId === params.seriesId);
+
+  return {
+    title: foundShow?.title,
+  };
+}
 
 type Episode = {
   episode: string;

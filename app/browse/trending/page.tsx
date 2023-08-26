@@ -1,6 +1,9 @@
 import ShowCard from "@/components/layout/ShowCard";
-import Image from "next/image";
-import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Trending Now",
+};
 
 const Trending = () => {
   const recommended = [

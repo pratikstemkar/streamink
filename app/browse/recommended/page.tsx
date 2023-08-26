@@ -1,6 +1,9 @@
 import ShowCard from "@/components/layout/ShowCard";
-import Image from "next/image";
-import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Recommended for You",
+};
 
 const Recommended = () => {
   const recommended = [
@@ -45,7 +48,7 @@ const Recommended = () => {
   return (
     <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 space-y-5">
       <div className="w-full space-y-2">
-        <h1 className="text-2xl font-extrabold">Recommended</h1>
+        <h1 className="text-2xl font-extrabold">Recommended for You</h1>
         <div className="columns-2 md:columns-6">
           {recommended?.map((series) => (
             <ShowCard

@@ -7,12 +7,28 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { ScrollArea } from "@/components/ui/scroll-area";
-
 import { series } from "@/data/series";
 import VideoPlayer from "@/components/watch/VideoPlayer";
 import { Button } from "@/components/ui/button";
 import { Plus, Share } from "lucide-react";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { seriesId: string; seasonId: string };
+}): Promise<Metadata> {
+  const foundShow = series?.find((show) => show.seriesId === params.seriesId);
+  const foundSeason = foundShow?.seasons.find(
+    (season) => season.season === params.seasonId
+  );
+  return {
+    title:
+      foundShow?.title +
+      " - Season " +
+      foundSeason?.season[foundSeason?.season.length - 1],
+  };
+}
 
 const Season = ({
   params,

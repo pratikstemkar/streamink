@@ -10,8 +10,24 @@ import { ReduxProvider } from "@/redux/providers/ReduxProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "StreamInk - Where Stories Flow",
+  title: {
+    template: `%s | ${process.env.NEXT_PUBLIC_APP_NAME}`,
+    default: `${process.env.NEXT_PUBLIC_APP_NAME} - Where Stories Flow`,
+  },
   description: "StreamInk - Where Stories Flow",
+  generator: "StreamInk",
+  applicationName: "StreamInk",
+  referrer: "origin-when-cross-origin",
+  keywords: ["StreamInl", "Streaming", "Anime"],
+  authors: [{ name: "Pratik", url: "https://pratikstemkar.in" }],
+  colorScheme: "dark",
+  creator: "Pratik Temkar",
+  publisher: "Pratik Temkar",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
