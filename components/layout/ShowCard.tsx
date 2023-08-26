@@ -4,10 +4,10 @@ import Link from "next/link";
 const ShowCard = ({
   params,
 }: {
-  params: { title: string; seriesId: string; thumbnail: string };
+  params: { title: string; showId: string; thumbnail: string };
 }) => {
   return (
-    <Link href={`/watch/${params.seriesId}`} key={params.seriesId}>
+    <Link href={`/watch/${params.showId}`} key={params.showId}>
       <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">
         <Image
           className="rounded-lg"

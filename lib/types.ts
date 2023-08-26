@@ -29,3 +29,9 @@ export interface IShowsData {
   message: string;
   shows: Array<IShow>;
 }
+
+export interface showListParams {
+  title: string;
+  link: string;
+  list: Array<IShow>;
+}

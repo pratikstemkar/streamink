@@ -1,7 +1,5 @@
 "use client";
 
-import RecommendedList from "@/components/home/RecommendedList";
-import TrendingList from "@/components/home/TrendingList";
 import EditProfile from "@/components/profile/EditProfile";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useSession } from "next-auth/react";
@@ -39,8 +37,6 @@ const UserPage = () => {
           <EditProfile />
         </div>
       </div>
-      <RecommendedList />
-      <TrendingList />
     </main>
   );
 };

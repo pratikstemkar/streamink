@@ -11,6 +11,20 @@ export const getFeaturedShow = (showsData: IShowsData) => {
   return showsData?.shows[randomIndex];
 };
 
+export function getRandomShows<T>(list: T[], count: number): T[] {
+  if (count >= list.length) {
+    return list; // Return the entire list if count is equal to or larger than list length
+  }
+
+  const shuffledList = list.slice(); // Create a copy of the list
+  for (let i = shuffledList.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledList[i], shuffledList[j]] = [shuffledList[j], shuffledList[i]];
+  }
+
+  return shuffledList.slice(0, count);
+}
+
 export function limitStringToWords(input: string, wordLimit: number): string {
   const words = input.split(" ");
 

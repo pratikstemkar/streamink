@@ -90,7 +90,7 @@ const Trending = () => {
             <ShowCard
               params={{
                 title: series.title,
-                seriesId: series.seriedId,
+                showId: series.seriedId,
                 thumbnail: series.thumbnail,
               }}
               key={series.seriedId}
