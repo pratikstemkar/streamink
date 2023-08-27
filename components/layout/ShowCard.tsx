@@ -16,7 +16,7 @@ const ShowCard = ({
           height={100}
           alt="image"
         />
-        <div className="absolute bottom-0 left-0 px-2 py-1">
+        <div className="absolute bottom-0 left-0 px-2 py-1 bg-gradient-to-t from-black to-transparent w-full">
           <h4 className="text-sm lg:text-xl font-semibold tracking-tight text-white">
             {params.title}
           </h4>

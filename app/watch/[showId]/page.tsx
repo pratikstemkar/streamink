@@ -5,20 +5,23 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { ISeason } from "@/lib/types";
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: { showId: string };
-// }): Promise<Metadata> {
-//   const foundShow = await getShow(params.showId);
-//   return {
-//     title: foundShow?.show.title,
-//   };
-// }
+export async function generateMetadata({
+  params,
+}: {
+  params: { showId: string };
+}): Promise<Metadata> {
+  const foundShow = await getShow(params.showId);
+  return {
+    title: foundShow?.show.title,
+  };
+}
 
 async function getShow(showId: string) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/${showId}`
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/${showId}`,
+    {
+      next: { revalidate: 60 },
+    }
   );
   if (!res.ok) {
     throw new Error("Show not Found!");

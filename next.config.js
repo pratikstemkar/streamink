@@ -20,6 +20,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "img10.hotstar.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

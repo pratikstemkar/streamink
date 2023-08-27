@@ -14,32 +14,37 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IEpisode, ISeason } from "@/lib/types";
 import { limitStringToWords } from "@/lib/utils";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: { showId: string; seasonId: string };
-// }): Promise<Metadata> {
-//   const foundShow = await getShow(params.showId);
+export async function generateMetadata({
+  params,
+}: {
+  params: { showId: string; seasonId: string };
+}): Promise<Metadata> {
+  const foundShow = await getShow(params.showId);
 
-//   if (foundShow) {
-//     const foundSeason = foundShow?.show.seasons.find(
-//       (season: ISeason) => season.seasonId === params.seasonId
-//     );
-//     return {
-//       title:
-//         foundShow?.show.title +
-//         " - Season " +
-//         foundSeason?.seasonId[foundSeason?.seasonId.length - 1],
-//     };
-//   }
-
-//   return {};
-// }
+  const foundSeason = foundShow?.show.seasons.find(
+    (season: ISeason) => season.seasonId === params.seasonId
+  );
+  return {
+    title:
+      foundShow?.show.title +
+      " - Season " +
+      foundSeason?.seasonId[foundSeason?.seasonId.length - 1],
+  };
+}
 
 async function getShow(showId: string) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/${showId}`
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/${showId}`,
+    {
+      next: { revalidate: 60 },
+    }
   );
   if (!res.ok) {
     notFound();
@@ -139,7 +144,16 @@ const Season = async ({
                       {"Episode " + episode.episodeId.slice(2)}
                     </h3>
                     <p className="text-slate-500 text-xs">
-                      {limitStringToWords(episode.description, 8)}
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger className="text-left">
+                            {limitStringToWords(episode.description, 8)}
+                          </TooltipTrigger>
+                          <TooltipContent className="w-[300px]">
+                            <p>{episode.description}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                     </p>
                     <div className="text-xs">{episode.duration} mins</div>
                   </div>

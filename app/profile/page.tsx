@@ -14,7 +14,7 @@ const UserPage = () => {
   });
 
   return (
-    <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 space-y-5">
+    <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 space-y-5 w-full">
       <div className="flex flex-col lg:flex-row space-y-2 lg:space-y-0 justify-between items-center w-full">
         <div className="flex items-center space-x-5">
           <Avatar className="h-20 w-20 lg:h-40 lg:w-40">
@@ -26,10 +26,10 @@ const UserPage = () => {
           </Avatar>
           <div>
             <h2 className="text-lg font-semibold">
-              {session?.user?.name! ? session?.user?.name : "Enter Name"}
+              {session?.user?.name! ? session?.user?.name : null}
             </h2>
             <p className="text-sm">
-              {session?.user?.email! ? session?.user?.email : "Enter Email"}
+              {session?.user?.email! ? session?.user?.email : null}
             </p>
           </div>
         </div>

@@ -3,19 +3,6 @@ import BannerCard from "@/components/layout/BannerCard";
 import { IShow, showListParams } from "@/lib/types";
 import { getFeaturedShow, getRandomShows } from "@/lib/utils";
 
-const params = {
-  title: "Jujutsu Kaisen",
-  seriesId: "jujutsukaisen",
-  thumbnail:
-    "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
-  desc: "Jujutsu Kaisen is a Japanese manga series written and illustrated by Gege Akutami. It has been serialized in Shueisha&apos;s shōnen mangamagazine Weekly Shōnen Jump since March 2018, with its chapterscollected and published in 23 tankōbon volumes as of July 2023.",
-  year: 2020,
-  language: 2,
-  subtitle: 8,
-  seasons: [],
-  trailer: null,
-};
-
 const getShows = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/shows`, {
     next: { revalidate: 60 },
