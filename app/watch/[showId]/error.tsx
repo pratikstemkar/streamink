@@ -18,9 +18,9 @@ export default function Error({
   return (
     <main className="w-full flex flex-col justify-center items-center space-y-2">
       <h2 className="text-2xl lg:text-4xl text-red-500 font-extrabold">
-        Not Found
+        {error.name}
       </h2>
-      <p>Could not find requested show</p>
+      <p>{error.message}</p>
       <Link href="/" className="text-indigo-500 underline">
         Return Home
       </Link>

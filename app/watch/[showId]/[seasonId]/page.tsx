@@ -67,7 +67,7 @@ const Season = async ({
   );
 
   return (
-    <main className="flex flex-col items-center justify-center lg:px-10 m-auto lg:mt-5 space-y-5">
+    <main className="flex flex-col items-center justify-center lg:px-10 lg:m-20 lg:mt-5 space-y-5">
       <div className="w-full flex flex-col lg:flex-row space-y-5 lg:space-x-5 lg:space-y-0">
         <div className="w-full lg:w-3/4">
           <div>
