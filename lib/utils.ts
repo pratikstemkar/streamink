@@ -47,3 +47,22 @@ export function limitStringToCharacters(
   const limitedString = input.slice(0, characterLimit);
   return limitedString + "...";
 }
+
+export function rotateListWithObjectIdAtTop(
+  list: any[],
+  episodeId: string
+): any[] {
+  const index = list.findIndex((item) => item.episodeId === episodeId);
+
+  if (index === -1) {
+    // Object with given object ID not found, return original list
+    return list;
+  }
+
+  const rotatedList = [
+    ...list.slice(index), // Objects from the specified object to the end
+    ...list.slice(0, index), // Objects from the beginning to just before the specified object
+  ];
+
+  return rotatedList;
+}
