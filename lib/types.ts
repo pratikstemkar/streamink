@@ -35,3 +35,11 @@ export interface showListParams {
   link: string;
   list: Array<IShow>;
 }
+
+export interface IUser {
+  name: string;
+  username: string;
+  image: string;
+  email: string;
+  password: string;
+}
