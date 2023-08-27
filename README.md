@@ -7,7 +7,11 @@
 - [x] Database Setup
 - [x] UI Layout Setup
 - [x] API Setup
-- [ ] State Management
+- [x] State Management
+- [ ] User Details
+- [ ] User Settings
+- [ ] User Metadata
+- [ ] Redis Cache
 
 ## Technology
 
