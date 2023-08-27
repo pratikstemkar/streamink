@@ -71,7 +71,7 @@ const Season = async ({
       <div className="w-full flex flex-col lg:flex-row space-y-5 lg:space-x-5 lg:space-y-0">
         <div className="w-full lg:w-3/4">
           <div>
-            <VideoPlayer videoUrl={foundShow?.show.trailer!} autoPlay={false} />
+            <VideoPlayer videoUrl={foundShow?.show.trailer!} autoPlay={true} />
           </div>
           <div className="flex w-full px-5 mt-2">
             <div className="w-full space-y-2">
@@ -93,8 +93,14 @@ const Season = async ({
                 {foundShow?.show.description}
               </p>
               <h4 className="font-semibold text-sm text-slate-500">
-                Thriller<span className="text-muted">{" | "}</span>Drama
-                <span className="text-muted">{" | "}</span>Romance
+                {foundShow?.show.tags?.map((tag: string, index: number) => (
+                  <>
+                    {tag}
+                    {index !== foundShow?.show.tags?.length - 1 ? (
+                      <span className="text-muted">{" | "}</span>
+                    ) : null}
+                  </>
+                ))}
               </h4>
               <div className="flex space-x-2">
                 <Button variant="outline" size="sm">
