@@ -5,9 +5,9 @@ type UserModel = Model<IUser, {}>;
 
 const schema = new Schema<IUser, UserModel>({
   name: { type: String },
-  username: { type: String },
+  username: { type: String, unique: true },
   image: { type: String },
-  email: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
   password: { type: String },
 });
 

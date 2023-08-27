@@ -1,6 +1,7 @@
 import dbConnect from "@/lib/dbConnect";
 import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
+import bcrypt from "bcrypt";
 
 export async function POST(req: NextRequest) {
   const { name, username, image, email, password } = await req.json();
@@ -9,7 +10,7 @@ export async function POST(req: NextRequest) {
     username,
     image,
     email,
-    password,
+    password: (await bcrypt.hash(password, 10)).toString(),
   };
 
   try {

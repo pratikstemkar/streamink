@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import AuthProvider from "@/components/context/AuthProvider";
 import { ReduxProvider } from "@/redux/providers/ReduxProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,6 +49,7 @@ export default function RootLayout({
                 {/* </div> */}
                 <Footer />
               </div>
+              <Toaster />
             </AuthProvider>
           </ThemeProvider>
         </ReduxProvider>
