@@ -74,7 +74,7 @@ const WideShowCard = ({ params }: { params: IShow }) => {
             <>
               <Image
                 className="rounded-lg"
-                src={params.thumbnail}
+                src={params.banner}
                 width={800}
                 height={100}
                 alt="image"

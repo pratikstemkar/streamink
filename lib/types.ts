@@ -9,6 +9,7 @@ export interface IEpisode {
 export interface ISeason {
   seasonId: string;
   thumbnail: string;
+  trailer: string;
   episodes: Array<IEpisode>;
 }
 
@@ -17,6 +18,7 @@ export interface IShow {
   showId: string;
   description: string;
   thumbnail: string;
+  banner: string;
   date: string;
   subtitles: Array<string>;
   trailer: string;

@@ -12,6 +12,7 @@ const schema = new Schema<IShow, ShowModel, IShowMethods>({
   showId: { type: String, required: true },
   description: { type: String },
   thumbnail: { type: String },
+  banner: { type: String },
   date: { type: String },
   subtitles: { type: [String] },
   trailer: { type: String },
@@ -20,6 +21,7 @@ const schema = new Schema<IShow, ShowModel, IShowMethods>({
     {
       seasonId: { type: String },
       thumbnail: { type: String },
+      trailer: { type: String },
       episodes: [
         {
           episodeId: { type: String },
