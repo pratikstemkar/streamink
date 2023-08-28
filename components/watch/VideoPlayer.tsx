@@ -30,8 +30,8 @@ const VideoPlayer = (params: { videoUrl: string; autoPlay: boolean }) => {
           //     opacity: 0.5,
           //   },
           controlBar: {
-            autoHide: false,
-            autoHideTimeout: 3,
+            autoHide: true,
+            autoHideTimeout: 1,
             animated: true,
           },
           doubleclickFullscreen: true,

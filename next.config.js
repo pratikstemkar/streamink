@@ -26,6 +26,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "v3img.voot.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
