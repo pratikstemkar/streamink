@@ -1,50 +1,64 @@
-import { UserCog } from "lucide-react";
+"use client";
+
+import { Settings } from "lucide-react";
 import { Button } from "../ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import { useState } from "react";
 
 const EditProfile = () => {
+  const { data: session, update } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/api/auth/signin?callbackUrl=/user");
+    },
+  });
+
+  const [newName, setNewName] = useState(session?.user?.name);
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline" size="sm">
-          <UserCog className="mr-2 h-4 w-4" />
-          <span>Edit Profile</span>
+          <Settings className="mr-0 lg:mr-2 h-4 w-4" />
+          <span className="hidden lg:block">Edit Profile</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[350px] lg:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-left">Edit profile</DialogTitle>
+          <DialogTitle className="text-left">Edit Profile</DialogTitle>
           <DialogDescription className="text-left">
-            Make changes to your profile here. Click save when you&apos;re done.
+            Make changes to your profile here. Click update when you&apos;re
+            done.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="John Doe" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="email" className="text-right">
-              Email
-            </Label>
-            <Input id="email" value="me@gmail.com" className="col-span-3" />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
+        <Label>Name</Label>
+        <Input
+          type="text"
+          value={newName!}
+          onChange={(e) => setNewName(e.target.value)}
+        />
+        <Button
+          onClick={() => update({ name: newName?.trim() })}
+          disabled={
+            newName === session?.user?.name ||
+            newName === "" ||
+            newName === null ||
+            newName!.trim().length < 4
+          }
+        >
+          Update Profile
+        </Button>
       </DialogContent>
     </Dialog>
   );

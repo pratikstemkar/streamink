@@ -55,23 +55,37 @@ export const options: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user, session }) {
-      console.log("jwt callback", { token, user, session });
+    async jwt({ token, user, session, trigger }) {
+      // console.log("jwt callback", { token, user, session });
+
+      if (trigger == "update" && session?.name) {
+        token.name = session?.name;
+      }
+
       if (user) {
         return {
           ...token,
           id: user.id,
         };
       }
+
+      await dbConnect();
+      const newUser = await User.updateOne(
+        { _id: token.id },
+        { name: token.name }
+      );
+      // console.log(newUser);
+
       return token;
     },
     async session({ session, token, user }) {
-      console.log("session callback", { session, token, user });
+      // console.log("session callback", { session, token, user });
       return {
         ...session,
         user: {
           ...session.user,
           id: token.id,
+          name: token.name,
         },
       };
     },
