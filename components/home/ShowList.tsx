@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import ShowCard from "../layout/ShowCard";
 import { IShow } from "@/lib/types";
@@ -13,7 +13,7 @@ const ShowList = ({
       <div className="flex justify-between">
         <h2 className="text-xl font-bold">{params.title}</h2>
         <Link href={`/browse/${params.link}`}>
-          <ArrowRight className="hover:scale-x-125" />
+          <ChevronRight className="transition duration-300 hover:translate-x-2" />
         </Link>
       </div>
       <div className="columns-2 md:columns-6 gap-2 lg:gap-4">

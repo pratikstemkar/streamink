@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { IShowsData } from "./types";
+import { IShow, IShowsData } from "./types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -66,3 +66,22 @@ export function rotateListWithObjectIdAtTop(
 
   return rotatedList;
 }
+
+export const getRandomObjectsExcluding = (
+  array: IShow[],
+  count: number,
+  exclude: IShow[]
+): IShow[] => {
+  const availableObjects = array.filter((obj) => !exclude.includes(obj));
+  if (availableObjects.length < count) {
+    throw new Error("Not enough available objects to choose from.");
+  }
+
+  const shuffledArray = availableObjects.slice();
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+
+  return shuffledArray.slice(0, count);
+};

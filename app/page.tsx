@@ -1,7 +1,11 @@
 import ShowList from "@/components/home/ShowList";
 import BannerCard from "@/components/layout/BannerCard";
 import { IShow, showListParams } from "@/lib/types";
-import { getFeaturedShow, getRandomShows } from "@/lib/utils";
+import {
+  getFeaturedShow,
+  getRandomObjectsExcluding,
+  getRandomShows,
+} from "@/lib/utils";
 
 const getShows = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/shows`, {
@@ -23,7 +27,11 @@ export default async function Home() {
     link: "trending",
     list: trendingShows as Array<IShow>,
   };
-  const recommendedShows = getRandomShows(showsData.shows, 6);
+  const recommendedShows = getRandomObjectsExcluding(
+    showsData.shows,
+    6,
+    trendingShows as Array<IShow>
+  );
   const recommendedParams: showListParams = {
     title: "Recommended for You",
     link: "recommended",

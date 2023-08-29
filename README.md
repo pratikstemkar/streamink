@@ -8,8 +8,8 @@
 - [x] UI Layout Setup
 - [x] API Setup
 - [x] State Management
-- [ ] User Details
-- [ ] User Settings
+- [x] User Details
+- [x] User Settings
 - [ ] User Metadata
 - [ ] Redis Cache
 
@@ -26,5 +26,3 @@
 - RTK Query
 - TypeScript
 - Node 18
-
-Built by [Pratik](https://pratikstemkar.in).

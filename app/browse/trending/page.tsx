@@ -1,102 +1,37 @@
-import ShowCard from "@/components/layout/ShowCard";
+import ShowList from "@/components/home/ShowList";
+import { IShow, showListParams } from "@/lib/types";
+import { getRandomShows } from "@/lib/utils";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Trending Now",
 };
 
-const Trending = () => {
-  const recommended = [
-    {
-      title: "Jujutsu Kaisen",
-      seriedId: "jujutsukaisen",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692263659/satoru-gojo_vtykvf.jpg",
-    },
-    {
-      title: "Itaewon Class",
-      seriedId: "itaewonclass",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692267734/itaewon-class_vqb2ep.jpg",
-    },
-    {
-      title: "Rent a Girlfriend",
-      seriedId: "rentagirlfriend",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
-    },
-    {
-      title: "Vincenzo",
-      seriedId: "vincenzo",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266168/vincenzo_vrpdio.jpg",
-    },
-    {
-      title: "Crash Landing On You",
-      seriedId: "crashlanding",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266198/clou_gntccr.jpg",
-    },
-    {
-      title: "It's Okay To Not Be Okay",
-      seriedId: "iotnbo",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266342/iotnbo_aseyzv.jpg",
-    },
-    {
-      title: "It's Okay To Not Be Okay",
-      seriedId: "iotnbo",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266342/iotnbo_aseyzv.jpg",
-    },
-    {
-      title: "Rent a Girlfriend",
-      seriedId: "rentagirlfriend",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692264341/rent-a-girlfriend_my393j.png",
-    },
-    {
-      title: "Vincenzo",
-      seriedId: "vincenzo",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266168/vincenzo_vrpdio.jpg",
-    },
-    {
-      title: "Crash Landing On You",
-      seriedId: "crashlanding",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266198/clou_gntccr.jpg",
-    },
-    {
-      title: "It's Okay To Not Be Okay",
-      seriedId: "iotnbo",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266342/iotnbo_aseyzv.jpg",
-    },
-    {
-      title: "Crash Landing On You",
-      seriedId: "crashlanding",
-      thumbnail:
-        "https://res.cloudinary.com/doa2rj1yw/image/upload/v1692266198/clou_gntccr.jpg",
-    },
-  ];
+const getShows = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/shows`, {
+    next: { revalidate: 60 },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch shows!");
+  }
+
+  return res.json();
+};
+
+const Trending = async () => {
+  const showsData = await getShows();
+
+  const trendingShows = getRandomShows(showsData.shows, 12);
+  const trendingParams: showListParams = {
+    title: "Trending Now",
+    link: "trending",
+    list: trendingShows as Array<IShow>,
+  };
 
   return (
     <main className="flex flex-col items-center justify-center px-2 md:px-10 m-auto mt-5 space-y-5">
       <div className="w-full space-y-2">
-        <h1 className="text-2xl font-extrabold">Trending</h1>
-        <div className="columns-2 md:columns-6">
-          {recommended?.map((series) => (
-            <ShowCard
-              params={{
-                title: series.title,
-                showId: series.seriedId,
-                thumbnail: series.thumbnail,
-              }}
-              key={series.seriedId}
-            />
-          ))}
-        </div>
+        <ShowList params={trendingParams} />
       </div>
     </main>
   );
