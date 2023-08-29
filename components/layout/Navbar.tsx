@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-10 border-b dark:bg-slate-950 bg-white">
-      <nav className="py-2 px-2 lg:px-12 flex justify-between items-center m-auto">
+      <nav className="py-2 px-4 lg:px-12 flex justify-between items-center m-auto">
         <div className="flex space-x-1 items-center justify-center">
           <h1 className="text-2xl lg:text-3xl font-extrabold leading-none tracking-tight hover:text-purple-600 flex items-center">
             <Link href="/">{process.env.NEXT_PUBLIC_APP_NAME}</Link>
