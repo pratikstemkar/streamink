@@ -85,3 +85,28 @@ export const getRandomObjectsExcluding = (
 
   return shuffledArray.slice(0, count);
 };
+
+export const getShows = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/shows`, {
+    next: { revalidate: 60 },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch shows!");
+  }
+
+  return res.json();
+};
+
+export async function getShow(showId: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/${showId}`,
+    {
+      next: { revalidate: 60 },
+    }
+  );
+  if (!res.ok) {
+    throw new Error("Show not Found!");
+  }
+
+  return res.json();
+}

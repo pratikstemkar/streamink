@@ -6,7 +6,7 @@ import { Plus, Share } from "lucide-react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IEpisode, ISeason } from "@/lib/types";
-import { limitStringToWords } from "@/lib/utils";
+import { getShow, limitStringToWords } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
@@ -32,20 +32,6 @@ export async function generateMetadata({
       " - Season " +
       foundSeason?.seasonId[foundSeason?.seasonId.length - 1],
   };
-}
-
-async function getShow(showId: string) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/${showId}`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
-  if (!res.ok) {
-    notFound();
-  }
-
-  return res.json();
 }
 
 const Season = async ({

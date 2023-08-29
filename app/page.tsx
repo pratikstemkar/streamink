@@ -5,18 +5,8 @@ import {
   getFeaturedShow,
   getRandomObjectsExcluding,
   getRandomShows,
+  getShows,
 } from "@/lib/utils";
-
-const getShows = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/shows`, {
-    next: { revalidate: 60 },
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch shows!");
-  }
-
-  return res.json();
-};
 
 export default async function Home() {
   const showsData = await getShows();

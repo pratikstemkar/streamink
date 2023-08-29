@@ -14,7 +14,11 @@ import {
 import VideoPlayer from "@/components/watch/VideoPlayer";
 import { Button } from "@/components/ui/button";
 import { Plus, Share } from "lucide-react";
-import { limitStringToWords, rotateListWithObjectIdAtTop } from "@/lib/utils";
+import {
+  getShow,
+  limitStringToWords,
+  rotateListWithObjectIdAtTop,
+} from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
@@ -46,20 +50,6 @@ export async function generateMetadata({
       "E" +
       foundEpisode?.episodeId.slice(2),
   };
-}
-
-async function getShow(showId: string) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/${showId}`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
-  if (!res.ok) {
-    notFound();
-  }
-
-  return res.json();
 }
 
 const Episode = async ({

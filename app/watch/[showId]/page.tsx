@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { ISeason } from "@/lib/types";
+import { getShow } from "@/lib/utils";
 
 export async function generateMetadata({
   params,
@@ -14,20 +15,6 @@ export async function generateMetadata({
   return {
     title: foundShow?.show.title,
   };
-}
-
-async function getShow(showId: string) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/${showId}`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
-  if (!res.ok) {
-    throw new Error("Show not Found!");
-  }
-
-  return res.json();
 }
 
 const Series = async ({ params }: { params: { showId: string } }) => {
