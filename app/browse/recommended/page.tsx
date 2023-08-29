@@ -46,7 +46,7 @@ const Recommended = () => {
   ];
 
   return (
-    <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 space-y-5">
+    <main className="flex flex-col items-center justify-center px-2 md:px-10 m-auto mt-5 space-y-5">
       <div className="w-full space-y-2">
         <h1 className="text-2xl font-extrabold">Recommended for You</h1>
         <div className="columns-2 md:columns-6">

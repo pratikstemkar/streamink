@@ -37,10 +37,10 @@ const Series = async ({ params }: { params: { showId: string } }) => {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center  lg:px-10 m-auto lg:mt-5">
+    <main className="flex flex-col items-center justify-center lg:px-10 m-auto lg:mt-5">
       {/* {JSON.stringify(foundShow.show)} */}
       <WideShowCard params={foundShow.show} />
-      <div className="w-full px-5 lg:px-0 space-y-2">
+      <div className="w-full px-2 lg:px-0 space-y-2">
         <div className="flex justify-between">
           <h2 className="text-xl font-bold">
             {foundShow?.show?.seasons?.length} Season

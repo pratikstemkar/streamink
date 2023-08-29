@@ -9,7 +9,7 @@ const WideShowCard = ({ params }: { params: IShow }) => {
   return (
     <div className="w-full items-center mb-5">
       <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
-        <div className="space-y-2 lg:w-1/2 px-5 lg:px-0 lg:block">
+        <div className="space-y-2 lg:w-1/2 px-2 lg:px-0 lg:block">
           <h2 className="text-2xl lg:text-4xl tracking-tight font-extrabold">
             {params.title}
           </h2>
@@ -68,7 +68,7 @@ const WideShowCard = ({ params }: { params: IShow }) => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col px-5 pt-5 pb-2 lg:p-0">
+        <div className="flex flex-col px-2 pt-2 pb-2 lg:p-0">
           <div className="relative overflow-hidden">
             {/* {!params.trailer && ( */}
             <>
@@ -77,7 +77,7 @@ const WideShowCard = ({ params }: { params: IShow }) => {
                 src={params.banner}
                 width={800}
                 height={100}
-                alt="image"
+                alt={params.title + " banner"}
               />
               {/* <div className="absolute bottom-0 left-0 px-2 py-1 lg:hidden">
                 <h4 className="text-xl font-semibold tracking-tight text-white">

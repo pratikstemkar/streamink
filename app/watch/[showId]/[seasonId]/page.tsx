@@ -68,14 +68,13 @@ const Season = async ({
           <div>
             <VideoPlayer videoUrl={foundSeason?.trailer!} autoPlay={true} />
           </div>
-          <div className="flex w-full px-5 mt-2">
+          <div className="flex w-full px-2 mt-2">
             <div className="w-full space-y-2">
               <h2 className="text-2xl lg:text-4xl tracking-tight font-extrabold">
                 {foundShow?.show.title}
-                {" - "}
                 {foundShow?.show.seasons.length > 1
-                  ? "Season " + foundSeason?.seasonId.slice(1)
-                  : "Trailer"}
+                  ? " - Season " + foundSeason?.seasonId.slice(1)
+                  : null}
               </h2>
               <h4 className="font-semibold text-sm">
                 {foundShow?.show.date.slice(-4)}
@@ -118,7 +117,7 @@ const Season = async ({
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-1/4 space-y-2 px-5 lg:px-0">
+        <div className="w-full lg:w-1/4 space-y-2 px-2 lg:px-0">
           <h3 className="text-xl font-bold">
             <SeasonSelect
               params={{

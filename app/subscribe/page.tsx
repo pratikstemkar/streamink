@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const Subscribe = () => {
   return (
-    <main className="flex flex-col items-center justify-center px-5 lg:px-10 m-auto mt-5 space-y-5">
+    <main className="flex flex-col items-center justify-center px-2 lg:px-10 m-auto mt-5 space-y-5">
       <div className="flex flex-col-reverse lg:flex-row w-full justify-center items-center">
         <div className="lg:w-1/2 space-y-5 mt-5 justify-center">
           <h1 className="text-4xl font-extrabold">

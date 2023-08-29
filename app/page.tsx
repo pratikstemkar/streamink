@@ -30,7 +30,7 @@ export default async function Home() {
     list: recommendedShows as Array<IShow>,
   };
   return (
-    <main className="flex flex-col items-center justify-center px-5 md:px-10 m-auto mt-5 ">
+    <main className="flex flex-col items-center justify-center px-2 md:px-10 m-auto mt-2 lg:mt-5 ">
       {/* {JSON.stringify(showsData)} */}
       <BannerCard params={featuredShow!} />
       <ShowList params={trendingParams} />
