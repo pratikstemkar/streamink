@@ -8,20 +8,17 @@ export const metadata: Metadata = {
 
 const Subscribe = () => {
   return (
-    <main className="flex flex-col items-center justify-center px-2 lg:px-10 m-auto mt-5 space-y-5">
-      <div className="flex flex-col-reverse lg:flex-row w-full justify-center items-center">
+    <main className="flex flex-col items-center justify-center px-2 lg:px-10 m-auto mt-2 lg:mt-5 space-y-5">
+      <div className="flex flex-col-reverse lg:flex-row w-full justify-center items-center lg:space-x-5">
         <div className="lg:w-1/2 space-y-5 mt-5 justify-center">
           <h1 className="text-4xl font-extrabold">
             Subscribe now and start streaming
           </h1>
           <p className="text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-            rerum dolor facilis blanditiis dicta, a ullam vitae quos nostrum
-            iure voluptatum ut, recusandae sunt! Et quis facilis expedita earum
-            praesentium?
+            {`Welcome to ${process.env.NEXT_PUBLIC_APP_NAME}! By subscribing to our streaming app, you're opening the door to a world of endless entertainment. Enjoy unlimited access to a diverse range of movies, shows, and exclusive content that will keep you hooked. Thank you for choosing us to be your source of entertainment!`}
           </p>
           <Button variant="outline" className="rounded-full text-yellow-500">
-            Pay Subscription
+            Subscribe
           </Button>
         </div>
         <div className="lg:w-1/2">

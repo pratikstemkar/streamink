@@ -15,7 +15,7 @@ const VideoPlayer = (params: { videoUrl: string; autoPlay: boolean }) => {
           fillToContainer: true,
           //   title: "My Video",
           allowDownload: false,
-          playbackRateEnabled: true,
+          playbackRateEnabled: false,
           allowTheatre: false,
           autoPlay: params.autoPlay,
           miniPlayer: {

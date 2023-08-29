@@ -24,97 +24,64 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-10 border-b dark:bg-slate-950 bg-white">
-      <nav className="py-2 px-5 lg:px-12 flex justify-between items-center m-auto">
+      <nav className="py-2 px-2 lg:px-10 flex justify-between items-center m-auto">
         <div className="flex space-x-1 items-center justify-center">
           <h1 className="text-2xl lg:text-3xl font-extrabold leading-none tracking-tight hover:text-purple-600 flex items-center">
             <Link href="/">{process.env.NEXT_PUBLIC_APP_NAME}</Link>
           </h1>
         </div>
-        <div className="space-x-5 flex-row items-center justify-center hidden lg:block">
+        <div className="space-x-5 flex-row items-center justify-center lg:-mr-5">
           {session ? (
-            <>
-              <div className="flex justify-center items-center space-x-5">
-                <Link href="/subscribe">
-                  <Button variant="outline" className="rounded-full">
-                    <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
-                    <span className="text-yellow-500">Subscribe</span>
-                  </Button>
-                </Link>
-                <UserAvatar params={{ image: session?.user?.image! }} />
-              </div>
-            </>
-          ) : (
-            <>
-              <Link href="/subscribe">
+            <div className="flex justify-center items-center space-x-5">
+              <Link href="/subscribe" className="hidden lg:block">
                 <Button variant="outline" className="rounded-full">
                   <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
                   <span className="text-yellow-500">Subscribe</span>
                 </Button>
               </Link>
-              <Link href="/login">
+              <UserAvatar params={{ image: session?.user?.image! }} />
+            </div>
+          ) : (
+            <div className="flex space-x-5">
+              <Link href="/subscribe" className="hidden lg:block">
+                <Button variant="outline" className="rounded-full">
+                  <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
+                  <span className="text-yellow-500">Subscribe</span>
+                </Button>
+              </Link>
+              <Link href="/login" className="hidden lg:block">
                 <Button variant="default" size="sm">
                   <LogIn className="mr-2 h-4 w-4" />
                   <span>Sign In</span>
                 </Button>
               </Link>
               <ModeToggle />
-            </>
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <Button variant="outline" size="sm" className="lg:hidden">
+                    <AlignJustifyIcon className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <>
+                    <Link href="/subscribe">
+                      <DropdownMenuItem>
+                        <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
+                        <span className="text-yellow-500">Subscribe</span>
+                      </DropdownMenuItem>
+                    </Link>
+                    <ThemeMenu />
+                    <Link href="/login">
+                      <DropdownMenuItem>
+                        <LogIn className="mr-2 h-4 w-4" />
+                        <span>Sign In</span>
+                      </DropdownMenuItem>
+                    </Link>
+                  </>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           )}
-        </div>
-        <div className="flex items-center space-x-2 lg:hidden">
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Button variant="outline" size="sm">
-                <AlignJustifyIcon className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              {/* <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator /> */}
-              {session ? (
-                <>
-                  <Link href="/subscribe">
-                    <DropdownMenuItem>
-                      <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
-                      <span className="text-yellow-500">Subscribe</span>
-                    </DropdownMenuItem>
-                  </Link>
-                  <Link href="/profile">
-                    <DropdownMenuItem>
-                      <User className="mr-2 h-4 w-4" />
-                      <span>Profile</span>
-                    </DropdownMenuItem>
-                  </Link>
-                  <ThemeMenu />
-                  <DropdownMenuItem
-                    onClick={() =>
-                      signOut({ redirect: true, callbackUrl: "/" })
-                    }
-                    className="text-red-500"
-                  >
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Sign Out</span>
-                  </DropdownMenuItem>
-                </>
-              ) : (
-                <>
-                  <Link href="/subscribe">
-                    <DropdownMenuItem>
-                      <Sparkles className="mr-2 h-4 w-4 text-yellow-500" />
-                      <span className="text-yellow-500">Subscribe</span>
-                    </DropdownMenuItem>
-                  </Link>
-                  <ThemeMenu />
-                  <Link href="/login">
-                    <DropdownMenuItem>
-                      <LogIn className="mr-2 h-4 w-4" />
-                      <span>Sign In</span>
-                    </DropdownMenuItem>
-                  </Link>
-                </>
-              )}
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </nav>
     </header>

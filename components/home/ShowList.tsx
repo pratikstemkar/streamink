@@ -16,7 +16,7 @@ const ShowList = ({
           <ArrowRight className="hover:scale-x-125" />
         </Link>
       </div>
-      <div className="columns-2 md:columns-6">
+      <div className="columns-2 md:columns-6 gap-2 lg:gap-4">
         {params.list?.map((show) => (
           <ShowCard
             params={{

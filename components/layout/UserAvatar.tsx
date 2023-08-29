@@ -1,6 +1,6 @@
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 
-import { LogOut, User } from "lucide-react";
+import { LogOut, Sparkles, User } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -24,8 +24,8 @@ const UserAvatar = ({ params }: { params: { image: string } }) => {
           className="relative h-8 w-8 rounded-full shadow"
         >
           <Avatar className="h-8 w-8">
-            <AvatarImage src={params.image} alt="@shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarImage src={params.image} alt="profile image" />
+            <AvatarFallback>SI</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
@@ -33,6 +33,13 @@ const UserAvatar = ({ params }: { params: { image: string } }) => {
         {/* <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator /> */}
         <DropdownMenuGroup>
+          <DropdownMenuItem
+            onClick={() => router.push("/profile")}
+            className="cursor-pointer text-yellow-500 lg:hidden"
+          >
+            <Sparkles className="mr-2 h-4 w-4" />
+            <span>Subscribe</span>
+          </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => router.push("/profile")}
             className="cursor-pointer"
