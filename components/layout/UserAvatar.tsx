@@ -34,7 +34,7 @@ const UserAvatar = ({ params }: { params: { image: string } }) => {
         <DropdownMenuSeparator /> */}
         <DropdownMenuGroup>
           <DropdownMenuItem
-            onClick={() => router.push("/profile")}
+            onClick={() => router.push("/subscribe")}
             className="cursor-pointer text-yellow-500 lg:hidden"
           >
             <Sparkles className="mr-2 h-4 w-4" />
