@@ -22,7 +22,5 @@
 - fluid-player
 - Cloudinary
 - MongoDB
-- Redux Toolkit
-- RTK Query
 - TypeScript
 - Node 18
