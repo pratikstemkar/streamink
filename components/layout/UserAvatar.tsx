@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 
 import { LogOut, Sparkles, User } from "lucide-react";

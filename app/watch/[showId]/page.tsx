@@ -34,13 +34,13 @@ const Series = async ({ params }: { params: { showId: string } }) => {
             {foundShow?.show?.seasons?.length! > 1 ? "s" : ""}
           </h2>
         </div>
-        <div className="columns-2 lg:columns-6">
+        <div className="columns-2 lg:columns-6 gap-1 lg:gap-4">
           {foundShow.show.seasons?.map((season: ISeason) => (
             <Link
               href={`/watch/${foundShow?.show.showId}/${season.seasonId}`}
               key={season.seasonId}
             >
-              <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-5  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">
+              <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer mb-1 lg:mb-5 lg:transition lg:ease-in-out lg:delay-150 lg:hover:-translate-y-1 lg:hover:scale-105 lg:duration-300">
                 <Image
                   className="rounded-lg"
                   src={season.thumbnail}

@@ -16,7 +16,7 @@ const ShowList = ({
           <ChevronRight className="transition duration-300 hover:translate-x-2" />
         </Link>
       </div>
-      <div className="columns-2 md:columns-6 gap-2 lg:gap-4">
+      <div className="columns-2 md:columns-6 gap-1 lg:gap-4">
         {params.list?.map((show) => (
           <ShowCard
             params={{

@@ -1,8 +1,7 @@
-"use client";
+// "use client";
 
 import Link from "next/link";
 import { Button } from "../ui/button";
-import Image from "next/image";
 
 import {
   DropdownMenu,
@@ -10,17 +9,19 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { AlignJustifyIcon, LogIn, LogOut, Sparkles, User } from "lucide-react";
+import { AlignJustifyIcon, LogIn, Sparkles } from "lucide-react";
 
-import { signOut, useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import UserAvatar from "./UserAvatar";
 import ThemeMenu from "./ThemeMenu";
-import { ModeToggle } from "./ModeToggle";
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 
-const Navbar = () => {
-  const { data: session } = useSession({
-    required: false,
-  });
+const Navbar = async () => {
+  // const { data: session } = useSession({
+  //   required: false,
+  // });
+  const session = await getServerSession(options);
 
   return (
     <header className="sticky top-0 z-10 border-b dark:bg-slate-950 bg-white">

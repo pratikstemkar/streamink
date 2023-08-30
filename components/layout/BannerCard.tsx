@@ -5,7 +5,7 @@ import { IShow } from "@/lib/types";
 
 const BannerCard = ({ params }: { params: IShow }) => {
   return (
-    <div className="w-full items-center mb-5">
+    <div className="w-full items-center lg:mb-5">
       <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
         <div className="space-y-2 w-full lg:w-1/2 lg:px-0 lg:block">
           <div className="hidden lg:block space-y-4">
