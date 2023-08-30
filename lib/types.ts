@@ -45,3 +45,8 @@ export interface IUser {
   email: string;
   password: string;
 }
+
+export interface IWatchlist {
+  userId: string;
+  shows: Array<IShow>;
+}
