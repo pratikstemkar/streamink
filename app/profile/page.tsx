@@ -10,7 +10,7 @@ const Profile = () => {
   const { data: session } = useSession({
     required: true,
     onUnauthenticated() {
-      redirect("/api/auth/signin?callbackUrl=/user");
+      redirect("/api/auth/signin?callbackUrl=/profile");
     },
   });
 
