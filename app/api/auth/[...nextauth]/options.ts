@@ -46,6 +46,8 @@ export const options: NextAuthOptions = {
           user?.password
         );
 
+        console.log(user);
+
         if (!isPasswordCorrect) {
           throw new Error("Password is incorrect!");
         }

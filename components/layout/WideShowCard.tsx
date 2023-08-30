@@ -1,11 +1,50 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { Plus, PlusIcon, Share } from "lucide-react";
 import VideoPlayer from "../watch/VideoPlayer";
 import { IShow } from "@/lib/types";
+import axios from "axios";
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import { useSession } from "next-auth/react";
+import { useToast } from "../ui/use-toast";
+
+async function addToWatchlist(userId: string, showId: string) {
+  const res = await axios.post(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/watchlist`,
+    {
+      userId: userId,
+      showId: showId,
+    }
+  );
+  if (!res) {
+    throw new Error("Show not added to watchlist!");
+  }
+
+  return res.data;
+}
 
 const WideShowCard = ({ params }: { params: IShow }) => {
+  const { data: session } = useSession();
+  const { toast } = useToast();
+
+  const shareLink = () => {
+    navigator.clipboard.writeText(window.location.toString());
+    toast({
+      title: "Link copied to clipboard.",
+    });
+  };
+
+  const watchlistClick = () => {
+    addToWatchlist(session?.user?.id, params.showId);
+    toast({
+      title: "Show added to watchlist",
+    });
+  };
+
   return (
     <div className="w-full items-center mb-5">
       <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
@@ -36,11 +75,11 @@ const WideShowCard = ({ params }: { params: IShow }) => {
             ))}
           </h4>
           <div className="flex space-x-2">
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" onClick={watchlistClick}>
               <Plus className="mr-2 h-4 w-4" />
               <span>Add to Watchlist</span>
             </Button>
-            <Button variant="link" size="sm">
+            <Button variant="link" size="sm" onClick={shareLink}>
               <Share className="mr-2 h-4 w-4" />
               <span>Share</span>
             </Button>

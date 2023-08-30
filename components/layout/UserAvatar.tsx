@@ -2,7 +2,7 @@
 
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 
-import { LogOut, Sparkles, User } from "lucide-react";
+import { ListPlus, LogOut, Sparkles, User } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -48,6 +48,13 @@ const UserAvatar = ({ params }: { params: { image: string } }) => {
           >
             <User className="mr-2 h-4 w-4" />
             <span>Profile</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => router.push("/browse/watchlist")}
+            className="cursor-pointer"
+          >
+            <ListPlus className="mr-2 h-4 w-4" />
+            <span>Watchlist</span>
           </DropdownMenuItem>
           <ThemeMenu />
           {/* <DropdownMenuItem className="cursor-pointer">
