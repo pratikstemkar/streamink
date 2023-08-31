@@ -41,6 +41,7 @@ const ShowCard = ({
     toast({
       title: "Show removed from Watchlist!",
     });
+    window.location.reload();
   };
   return (
     <div

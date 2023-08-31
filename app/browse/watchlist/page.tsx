@@ -32,12 +32,11 @@ const Watchlist = async () => {
   const userId = session?.user?.id;
   const watchlistData = await getWatchlist(userId);
   return (
-    <main className="flex flex-col items-center justify-center px-2 md:px-10 m-auto mt-2 lg:mt-5 space-y-2">
+    <main className="flex flex-col items-center justify-center px-2 md:px-10 m-auto mt-2 lg:mt-5 space-y-2 w-full">
       <div className="flex w-full">
         <h2 className="text-xl font-bold">Watchlist</h2>
       </div>
       <div className="columns-2 lg:columns-6 gap-1 lg:gap-4">
-        {/* {JSON.stringify(watchlistData)} */}
         {watchlistData?.watchlist.shows.map((show: string) => (
           <WatchlistShow params={{ showId: show }} key={show} />
         ))}

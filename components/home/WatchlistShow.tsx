@@ -1,7 +1,4 @@
-import { ChevronRight } from "lucide-react";
-import Link from "next/link";
 import ShowCard from "../layout/ShowCard";
-import { IShow } from "@/lib/types";
 import { getShow } from "@/lib/utils";
 
 const WatchlistShow = async ({ params }: { params: { showId: string } }) => {
