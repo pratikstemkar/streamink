@@ -1,5 +1,4 @@
 import ShowList from "@/components/home/ShowList";
-import ShowCard from "@/components/layout/ShowCard";
 import { IShow, showListParams } from "@/lib/types";
 import { getRandomShows, getShows } from "@/lib/utils";
 import { Metadata } from "next";

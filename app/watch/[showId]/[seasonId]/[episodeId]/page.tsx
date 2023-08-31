@@ -1,6 +1,6 @@
 import { IEpisode, ISeason } from "@/lib/types";
 import { Metadata } from "next";
-import { notFound, useRouter } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import Image from "next/image";
 import {

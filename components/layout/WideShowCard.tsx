@@ -4,11 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { Plus, PlusIcon, Share } from "lucide-react";
-import VideoPlayer from "../watch/VideoPlayer";
 import { IShow } from "@/lib/types";
 import axios from "axios";
-import { getServerSession } from "next-auth";
-import { options } from "@/app/api/auth/[...nextauth]/options";
 import { useSession } from "next-auth/react";
 import { useToast } from "../ui/use-toast";
 
@@ -39,6 +36,7 @@ const WideShowCard = ({ params }: { params: IShow }) => {
   };
 
   const watchlistClick = () => {
+    // @ts-ignore
     addToWatchlist(session?.user?.id, params.showId);
     toast({
       title: "Show added to watchlist",

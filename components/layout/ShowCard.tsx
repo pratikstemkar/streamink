@@ -36,6 +36,7 @@ const ShowCard = ({
   const { toast } = useToast();
   const { data: session } = useSession();
   const trashClick = () => {
+    // @ts-ignore
     removeFromWatchlist(session?.user?.id, params.showId);
     toast({
       title: "Show removed from Watchlist!",

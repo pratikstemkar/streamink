@@ -43,10 +43,8 @@ export default async function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <AuthProvider>
               <div className="min-h-screen flex flex-col justify-between">
-                {/* <div> */}
                 <Navbar />
                 {children}
-                {/* </div> */}
                 <Footer />
               </div>
               <Toaster />

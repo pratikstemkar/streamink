@@ -28,7 +28,8 @@ const Watchlist = async () => {
   if (!session) {
     redirect("/api/auth/signin?callbackUrl=/browse/watchlist");
   }
-  const userId = session?.user.id;
+  // @ts-ignore
+  const userId = session?.user?.id;
   const watchlistData = await getWatchlist(userId);
   return (
     <main className="flex flex-col items-center justify-center px-2 md:px-10 m-auto mt-2 lg:mt-5 space-y-2">

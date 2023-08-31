@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import ShowCard from "../layout/ShowCard";
 import { IShow } from "@/lib/types";
