@@ -46,7 +46,7 @@ export const options: NextAuthOptions = {
           user?.password
         );
 
-        console.log(user);
+        // console.log(user);
 
         if (!isPasswordCorrect) {
           throw new Error("Password is incorrect!");
@@ -76,7 +76,7 @@ export const options: NextAuthOptions = {
         { _id: token.id },
         { name: token.name }
       );
-      // console.log(newUser);
+      // console.log("newUser", newUser);
 
       return token;
     },

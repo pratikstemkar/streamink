@@ -14,6 +14,7 @@ const WatchlistShow = async ({ params }: { params: { showId: string } }) => {
           title: showData.show.title,
           showId: showData.show.showId,
           thumbnail: showData.show.thumbnail,
+          watchlist: true,
         }}
         key={showData.show.showId}
       />

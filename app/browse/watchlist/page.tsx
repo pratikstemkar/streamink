@@ -13,7 +13,7 @@ async function getWatchlist(userId: string) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_APP_URL}/api/shows/watchlist/${userId}`,
     {
-      next: { revalidate: 60 },
+      cache: "no-store",
     }
   );
   if (!res.ok) {
@@ -31,11 +31,11 @@ const Watchlist = async () => {
   const userId = session?.user.id;
   const watchlistData = await getWatchlist(userId);
   return (
-    <main className="flex flex-col items-center justify-center px-2 md:px-10 m-auto mt-5 space-y-5">
+    <main className="flex flex-col items-center justify-center px-2 md:px-10 m-auto mt-2 lg:mt-5 space-y-2">
       <div className="flex w-full">
         <h2 className="text-xl font-bold">Watchlist</h2>
       </div>
-      <div className="columns-6 ">
+      <div className="columns-2 lg:columns-6 gap-1 lg:gap-4">
         {/* {JSON.stringify(watchlistData)} */}
         {watchlistData?.watchlist.shows.map((show: string) => (
           <WatchlistShow params={{ showId: show }} key={show} />

@@ -23,6 +23,7 @@ const ShowList = ({
               title: show.title,
               showId: show.showId,
               thumbnail: show.thumbnail,
+              watchlist: false,
             }}
             key={show.showId}
           />
