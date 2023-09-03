@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -11,17 +11,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { AlignJustifyIcon, LogIn, Sparkles } from "lucide-react";
 
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import UserAvatar from "./UserAvatar";
 import ThemeMenu from "./ThemeMenu";
-import { getServerSession } from "next-auth";
-import { options } from "@/app/api/auth/[...nextauth]/options";
+// import { getServerSession } from "next-auth";
+// import { options } from "@/app/api/auth/[...nextauth]/options";
 
-const Navbar = async () => {
-  // const { data: session } = useSession({
-  //   required: false,
-  // });
-  const session = await getServerSession(options);
+const Navbar = () => {
+  const { data: session, status } = useSession({
+    required: false,
+  });
+  // const session = await getServerSession(options);
 
   return (
     <header className="sticky top-0 z-10 border-b dark:bg-slate-950 bg-white">
@@ -32,7 +32,7 @@ const Navbar = async () => {
           </h1>
         </div>
         <div className="space-x-5 flex-row items-center justify-center">
-          {session ? (
+          {status === "loading" ? null : session ? (
             <div className="flex justify-center items-center space-x-5">
               <Link href="/subscribe" className="hidden lg:block">
                 <Button variant="outline" className="rounded-full">
